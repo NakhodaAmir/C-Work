@@ -6,18 +6,25 @@
 
         abstract public class Enumeration : IComparable
         {
-            private static int id = 0;
-
+            #region Properties
             public int Id { get; private set; }
             public string Name { get; set; }
+            #endregion
 
+            #region Static Variables
+            private static int id = 0;
+            #endregion
+
+            #region Constructor
             protected Enumeration(string name)
             {
                 Name = name;
 
                 Id = id++;
             }
+            #endregion
 
+            #region Public Methods
             public override string ToString() => Name;
 
             public override bool Equals(object obj)
@@ -33,6 +40,7 @@
             public int CompareTo(object obj) => Id.CompareTo(((Enumeration)obj).Id);
 
             public override int GetHashCode() => Id.GetHashCode();
+            #endregion
         }
     }
 }
