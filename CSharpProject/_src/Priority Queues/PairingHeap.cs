@@ -223,7 +223,7 @@
         #endregion
 
         #region Pairing Heap Interface
-        public interface IPairingHeap<T> : IComparable<T> where T : IPairingHeap<T>
+        public interface IPairingHeap<T> : System.IComparable<T> where T : IPairingHeap<T>
         {
             PairingHeap<T>.PairingHeapNode HeapNode { get; set; }
         }

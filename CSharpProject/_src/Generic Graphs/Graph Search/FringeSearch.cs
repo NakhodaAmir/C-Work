@@ -7,11 +7,11 @@
             public class FringeSearch<Node, Type> : GraphSearcher<Node, Type> where Node : GraphSearchableNode<Type>
             {
                 #region Properties
-                public Dictionary<GraphSearcherNode<Type>, GraphSearcherNode<Type>> Cache { get; private set; }
+                public System.Collections.Generic.Dictionary<GraphSearcherNode<Type>, GraphSearcherNode<Type>> Cache { get; private set; }
                 #endregion
 
                 #region Variables
-                protected LinkedList<GraphSearcherNode<Type>> fringeList;
+                protected System.Collections.Generic.LinkedList<GraphSearcherNode<Type>> fringeList;
 
                 float fLimit;
                 #endregion
@@ -19,9 +19,9 @@
                 #region Constructor
                 public FringeSearch(IGraphSearchable<Node, Type> graph) : base(graph)
                 {
-                    fringeList = new LinkedList<GraphSearcherNode<Type>>();
+                    fringeList = new System.Collections.Generic.LinkedList<GraphSearcherNode<Type>>();
 
-                    Cache = new Dictionary<GraphSearcherNode<Type>, GraphSearcherNode<Type>>();
+                    Cache = new System.Collections.Generic.Dictionary<GraphSearcherNode<Type>, GraphSearcherNode<Type>>();
 
                     fLimit = 0;
                 }
@@ -47,7 +47,7 @@
 
                         if (CurrentNode.FCost > fLimit)
                         {
-                            fMin = Math.Min(CurrentNode.FCost, fMin);
+                            fMin = System.Math.Min(CurrentNode.FCost, fMin);
 
                             listedNode = listedNode.Next;
                             continue;
@@ -61,7 +61,7 @@
                             return Status;
                         }
 
-                        List<Node> neighbours = graph.GetNeighbourNodes((Node)CurrentNode.Location);
+                        System.Collections.Generic.List<Node> neighbours = graph.GetNeighbourNodes((Node)CurrentNode.Location);
 
                         neighbours.Reverse();
 

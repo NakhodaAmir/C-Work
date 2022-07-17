@@ -11,13 +11,13 @@
                 #endregion
 
                 #region Variables
-                protected Queue<Node> queue;
+                protected System.Collections.Generic.Queue<Node> queue;
                 #endregion
 
                 #region Constructor
                 public BreadthFirstSearch(IGraphTraversable<Node, Type> graph) : base(graph)
                 {
-                    queue = new Queue<Node>();
+                    queue = new System.Collections.Generic.Queue<Node>();
                 }
                 #endregion
 

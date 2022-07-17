@@ -34,7 +34,7 @@
             #region Constructor
             public DaryHeap(int maxSize, int d = 2, DaryHeapType type = DaryHeapType.MIN)
             {
-                this.d = (d >= 2) ? d : throw new ArgumentException("Degree cannot be less than 2");
+                this.d = (d >= 2) ? d : throw new System.ArgumentException("Degree cannot be less than 2");
                 this.type = type;
 
                 currentHeapCount = 0;
@@ -157,7 +157,7 @@
         #endregion
 
         #region D-Ary Heap Interface
-        public interface IDaryHeap<T> : IComparable<T>
+        public interface IDaryHeap<T> : System.IComparable<T>
         {
             int HeapIndex { get; set; }
         }

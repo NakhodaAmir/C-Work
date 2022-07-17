@@ -11,13 +11,13 @@
                 #endregion
 
                 #region Variables
-                protected Stack<Node> stack;
+                protected System.Collections.Generic.Stack<Node> stack;
                 #endregion
 
                 #region Constructor
                 public DepthFirstSearch(IGraphTraversable<Node, Type> graph) : base(graph)
                 {
-                    stack = new Stack<Node>();
+                    stack = new System.Collections.Generic.Stack<Node>();
                 }
                 #endregion
 

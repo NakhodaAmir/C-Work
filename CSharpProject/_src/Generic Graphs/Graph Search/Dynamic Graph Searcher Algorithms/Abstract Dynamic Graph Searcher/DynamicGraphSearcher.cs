@@ -17,7 +17,7 @@
 
                     #region Variables
                     protected PairingHeap<GraphSearcherNode<Type>> openList;
-                    protected HashSet<GraphSearcherNode<Type>> closedList;
+                    protected System.Collections.Generic.HashSet<GraphSearcherNode<Type>> closedList;
                     #endregion
 
                     #region Constructor
@@ -25,7 +25,7 @@
                     {
                         openList = new PairingHeap<GraphSearcherNode<Type>>();
 
-                        closedList = new HashSet<GraphSearcherNode<Type>>();
+                        closedList = new System.Collections.Generic.HashSet<GraphSearcherNode<Type>>();
                     }
                     #endregion
 

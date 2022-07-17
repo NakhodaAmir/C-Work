@@ -2,9 +2,7 @@
 {
     namespace Helpers
     {
-        using System;
-
-        abstract public class Enumeration : IComparable
+        abstract public class Enumeration : System.IComparable
         {
             #region Properties
             public int Id { get; private set; }

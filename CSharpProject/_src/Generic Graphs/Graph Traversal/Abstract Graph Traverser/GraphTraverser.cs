@@ -22,7 +22,7 @@
                 #region Variables
                 protected readonly IGraphTraversable<Node, Type> graph;
 
-                protected HashSet<Node> visited;
+                protected System.Collections.Generic.HashSet<Node> visited;
                 #endregion
 
                 #region Constructor
@@ -32,7 +32,7 @@
 
                     this.graph = graph;
 
-                    visited = new HashSet<Node>();
+                    visited = new System.Collections.Generic.HashSet<Node>();
                 }
                 #endregion
 
