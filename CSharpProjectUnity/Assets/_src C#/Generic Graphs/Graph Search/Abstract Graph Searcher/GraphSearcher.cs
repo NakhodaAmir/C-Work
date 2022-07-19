@@ -25,6 +25,8 @@
                 #region Properties
                 public Node TargetNode { get; protected set; }
                 public GraphSearcherNode<Type> CurrentNode { get; protected set; }
+
+                public bool IsFailed { get { return Status.Equals(SearchStatus.FAILED); } }
                 #endregion
 
                 #region Variables

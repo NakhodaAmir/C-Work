@@ -27,6 +27,10 @@
             #region Properties
             public Node SourceNode { get; protected set; }
             public AlgorithmStatus Status { get; protected set; }
+
+            public bool IsNotInitialized { get { return Status.Equals(AlgorithmStatus.NOT_INITIALIZED); } }
+            public bool IsRunning { get { return Status.Equals(AlgorithmStatus.RUNNING); } }
+            public bool IsSucceeded { get { return Status.Equals(AlgorithmStatus.SUCCEEDED); } }
             #endregion
 
             #region Constructor
@@ -41,7 +45,7 @@
             #region Public Methods
             public AlgorithmStatus Step()
             {
-                if (!Status.Equals(AlgorithmStatus.RUNNING)) return Status;
+                if (!IsRunning) return Status;
 
                 return StepMethod();
             }
@@ -51,7 +55,7 @@
             protected abstract void InitializeMethod();
             protected bool InitializeStart()
             {
-                if (Status.Equals(AlgorithmStatus.RUNNING)) return false;
+                if (IsRunning) return false;
 
                 Reset();
 
