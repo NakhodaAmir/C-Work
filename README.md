@@ -9,7 +9,7 @@
         - [Fringe Search](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Search/FringeSearch.cs)
     - [Graph Traversal](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Traversal)
         - [Breadth-First Search](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Traversal/BreadthFirstSearch.cs)
-        - [Depth-First Search](C-Work/blob/main/CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
+        - [Depth-First Search](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
 - [**Helper Class**](CSharpProjectUnity/Assets/_src%20C%23/Helper%20Classes)
     - [Finite State Machine & State](CSharpProjectUnity/Assets/_src%20C%23/Helper%20Classes/Finite%20State%20Machine)
         - [Finite State Machine](CSharpProjectUnity/Assets/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs)
