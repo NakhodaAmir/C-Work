@@ -1,24 +1,24 @@
 # C-Work
-## C# Specific Code
-- Generic Graphs
-    - Graph Search
-        - Dynamic Graph Search
-            - A* Search
-            - Dijkstra Search
-            - Greedy-Best-First Search
-        - Fringe Search
-    - Graph Traversal
-        - Breadth-First Search
-        - Depth-First Search
-- Helper Class
-    - Finite State Machine & State
-    - Enumeration
-    - Singleton Class
-    - Singleton Object
-- Priority Queues
-    - D-ary Heap (Array Implementaion)
-    - Pairing Heap
-## Unity Code
-- Helper Class
-    - Singleton Behaviour
-    - Persistent Singleton Behaviour
+## [C# Specific Code](CSharpProjectUnity/Assets/_src%20C%23)
+- [**Generic Graphs**](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs)
+    - [Graph Search](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Search)
+        - [Dynamic Graph Search](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms/)
+            - [A* Search]()
+            - [Dijkstra Search]()
+            - [Greedy-Best-First Search]()
+        - [Fringe Search](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Search/FringeSearch.cs)
+    - [Graph Traversal](CSharpProjectUnity/Assets/_src%20C%23/Generic%20Graphs/Graph%20Traversal)
+        - [Breadth-First Search]()
+        - [Depth-First Search]()
+- [**Helper Class**]()
+    - [Finite State Machine & State]()
+    - [Enumeration]()
+    - [Singleton Class]()
+    - [Singleton Object]()
+- [**Priority Queues**]()
+    - [D-ary Heap]()
+    - [Pairing Heap]()
+## [Unity Code]()
+- [**Helper Class**]()
+    - [Singleton Behaviour]()
+    - [Persistent Singleton Behaviour]()
