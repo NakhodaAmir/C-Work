@@ -16,33 +16,33 @@
                     #endregion
 
                     #region Variables
-                    protected PairingHeap<GraphSearcherNode<Type>> openList;
-                    protected System.Collections.Generic.HashSet<GraphSearcherNode<Type>> closedList;
+                    public PairingHeap<GraphSearcherNode<Type>> OpenList { get; protected set; }
+                    public System.Collections.Generic.HashSet<GraphSearcherNode<Type>> ClosedList { get; protected set; }
                     #endregion
 
                     #region Constructor
                     public DynamicGraphSearcher(IGraphSearchable<Node, Type> graph) : base(graph)
                     {
-                        openList = new PairingHeap<GraphSearcherNode<Type>>();
+                        OpenList = new PairingHeap<GraphSearcherNode<Type>>();
 
-                        closedList = new System.Collections.Generic.HashSet<GraphSearcherNode<Type>>();
+                        ClosedList = new System.Collections.Generic.HashSet<GraphSearcherNode<Type>>();
                     }
                     #endregion
 
                     #region Protected & Private Methods
                     protected override AlgorithmStatus StepMethod()
                     {
-                        if (openList.IsEmpty)
+                        if (OpenList.IsEmpty)
                         {
                             Status = SearchStatus.FAILED;
                             OnFail?.Invoke();
                             return Status;
                         }
 
-                        closedList.Add(CurrentNode);
+                        ClosedList.Add(CurrentNode);
                         OnAddToClosedList?.Invoke(CurrentNode);
 
-                        CurrentNode = openList.ExtractMin();
+                        CurrentNode = OpenList.ExtractMin();
                         OnChangeCurrentNode?.Invoke(CurrentNode);
 
                         if (Equals(CurrentNode.Location.Value, TargetNode.Value))
@@ -55,7 +55,7 @@
 
                         foreach (Node neighbour in graph.GetNeighbourNodes((Node)CurrentNode.Location))
                         {
-                            if (closedList.Contains(neighbour.GraphSearcherNode)) continue;
+                            if (ClosedList.Contains(neighbour.GraphSearcherNode)) continue;
 
                             AlgorithmSpecificImplementation(neighbour);
                         }
@@ -64,7 +64,7 @@
                     }
                     protected override void InitializeMethod()
                     {
-                        openList.Insert(CurrentNode);
+                        OpenList.Insert(CurrentNode);
                         OnAddToOpenList?.Invoke(CurrentNode);
                     }
 
@@ -74,27 +74,27 @@
                     {
                         gCost += neighbour.GraphSearcherNode.PCost;
 
-                        if (gCost < neighbour.GraphSearcherNode.GCost || !openList.Contains(neighbour.GraphSearcherNode))
+                        if (gCost < neighbour.GraphSearcherNode.GCost || !OpenList.Contains(neighbour.GraphSearcherNode))
                         {
                             neighbour.GraphSearcherNode.SetProperties(neighbour, CurrentNode, gCost, hCost);
 
-                            if (!openList.Contains(neighbour.GraphSearcherNode))
+                            if (!OpenList.Contains(neighbour.GraphSearcherNode))
                             {
-                                openList.Insert(neighbour.GraphSearcherNode);
+                                OpenList.Insert(neighbour.GraphSearcherNode);
                                 OnAddToOpenList?.Invoke(CurrentNode);
                             }
                             else
                             {
-                                openList.Update(neighbour.GraphSearcherNode);
+                                OpenList.Update(neighbour.GraphSearcherNode);
                             }
                         }
                     }
 
                     protected override void Reset()
                     {
-                        openList = new PairingHeap<GraphSearcherNode<Type>>();
+                        OpenList = new PairingHeap<GraphSearcherNode<Type>>();
 
-                        closedList.Clear();
+                        ClosedList.Clear();
 
                         base.Reset();
                     }

@@ -11,7 +11,7 @@
                 #endregion
 
                 #region Variables
-                protected System.Collections.Generic.LinkedList<GraphSearcherNode<Type>> fringeList;
+                public System.Collections.Generic.LinkedList<GraphSearcherNode<Type>> FringeList { get;  private set; }
 
                 float fLimit;
                 #endregion
@@ -19,7 +19,7 @@
                 #region Constructor
                 public FringeSearch(IGraphSearchable<Node, Type> graph) : base(graph)
                 {
-                    fringeList = new System.Collections.Generic.LinkedList<GraphSearcherNode<Type>>();
+                    FringeList = new System.Collections.Generic.LinkedList<GraphSearcherNode<Type>>();
 
                     Cache = new System.Collections.Generic.Dictionary<GraphSearcherNode<Type>, GraphSearcherNode<Type>>();
 
@@ -30,7 +30,7 @@
                 #region Protected & Private Methods
                 protected override AlgorithmStatus StepMethod()
                 {
-                    if (fringeList.Count == 0)
+                    if (FringeList.Count == 0)
                     {
                         Status = SearchStatus.FAILED;
                         OnFail?.Invoke();
@@ -39,7 +39,7 @@
 
                     float fMin = float.MaxValue;
 
-                    for (var listedNode = fringeList.First; listedNode != null;)
+                    for (var listedNode = FringeList.First; listedNode != null;)
                     {
                         CurrentNode = listedNode.Value;
 
@@ -71,16 +71,16 @@
 
                             if (Cache.ContainsKey(neighbour.GraphSearcherNode) && neighbourGCost >= neighbour.GraphSearcherNode.GCost) continue;
 
-                            var listedNeighbour = fringeList.Find(neighbour.GraphSearcherNode);
+                            var listedNeighbour = FringeList.Find(neighbour.GraphSearcherNode);
 
                             if (listedNeighbour != null)
                             {
-                                fringeList.Remove(listedNeighbour);
-                                fringeList.AddAfter(fringeList.Find(CurrentNode), listedNeighbour);
+                                FringeList.Remove(listedNeighbour);
+                                FringeList.AddAfter(FringeList.Find(CurrentNode), listedNeighbour);
                             }
                             else
                             {
-                                fringeList.AddAfter(fringeList.Find(CurrentNode), neighbour.GraphSearcherNode);
+                                FringeList.AddAfter(FringeList.Find(CurrentNode), neighbour.GraphSearcherNode);
                             }
 
                             neighbour.GraphSearcherNode.GCost = neighbourGCost;
@@ -89,14 +89,14 @@
                         }
                         var lastNode = listedNode;
                         listedNode = lastNode.Next;
-                        fringeList.Remove(lastNode);
+                        FringeList.Remove(lastNode);
                     }
                     fLimit = fMin;
                     return base.StepMethod();
                 }
                 protected override void InitializeMethod()
                 {
-                    fringeList.AddFirst(CurrentNode);
+                    FringeList.AddFirst(CurrentNode);
 
                     Cache.Add(CurrentNode, null);
 
@@ -105,7 +105,7 @@
 
                 protected override void Reset()
                 {
-                    fringeList.Clear();
+                    FringeList.Clear();
 
                     Cache.Clear();
 
