@@ -8,7 +8,7 @@
             {
                 public class DijkstraSearch<Node, Type> : DynamicGraphSearcher<Node, Type> where Node : GraphSearchableNode<Type>
                 {
-                    public DijkstraSearch(IGraphSearchable<Node, Type> graph) : base(graph) { }
+                    public DijkstraSearch(IGraphSearchable<Node, Type> graph, bool retracePathInclSource = true) : base(graph, retracePathInclSource) { }
 
                     protected override void AlgorithmSpecificImplementation(Node neighbour)
                     {

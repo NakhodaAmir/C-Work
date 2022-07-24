@@ -21,7 +21,7 @@
                     #endregion
 
                     #region Constructor
-                    public DynamicGraphSearcher(IGraphSearchable<Node, Type> graph) : base(graph)
+                    public DynamicGraphSearcher(IGraphSearchable<Node, Type> graph, bool retracePathInclSource = true) : base(graph, retracePathInclSource)
                     {
                         OpenList = new PairingHeap<GraphSearcherNode<Type>>();
 
@@ -49,6 +49,7 @@
                         {
                             Status = AlgorithmStatus.SUCCEEDED;
                             OnTargetFound?.Invoke(CurrentNode);
+                            RetracePath();
                             OnSuccess?.Invoke();
                             return Status;
                         }

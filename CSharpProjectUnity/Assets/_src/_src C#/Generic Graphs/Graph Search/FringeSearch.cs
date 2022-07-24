@@ -17,7 +17,7 @@
                 #endregion
 
                 #region Constructor
-                public FringeSearch(IGraphSearchable<Node, Type> graph) : base(graph)
+                public FringeSearch(IGraphSearchable<Node, Type> graph, bool retracePathInclSource = true) : base(graph, retracePathInclSource)
                 {
                     FringeList = new System.Collections.Generic.LinkedList<GraphSearcherNode<Type>>();
 
@@ -57,6 +57,7 @@
                         {
                             Status = AlgorithmStatus.SUCCEEDED;
                             OnTargetFound?.Invoke(CurrentNode);
+                            RetracePath();
                             OnSuccess?.Invoke();
                             return Status;
                         }
@@ -112,6 +113,11 @@
                     fLimit = 0;
 
                     base.Reset();
+                }
+
+                protected override GraphSearcherNode<Type> RetraceImplementation(GraphSearcherNode<Type> node)
+                {
+                    return Cache[node];
                 }
                 #endregion
             }
