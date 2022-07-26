@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &763077692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +831,10 @@ PrefabInstance:
     - target: {fileID: 8937719642716369232, guid: 9c51ccabe249deb43bf281a5e2f376f7, type: 3}
       propertyPath: searchType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937719642716369232, guid: 9c51ccabe249deb43bf281a5e2f376f7, type: 3}
+      propertyPath: heuristicType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8937719642716369232, guid: 9c51ccabe249deb43bf281a5e2f376f7, type: 3}
       propertyPath: gridWorldSize.x
@@ -1164,7 +1168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1021990729
 MonoBehaviour:
   m_ObjectHideFlags: 0

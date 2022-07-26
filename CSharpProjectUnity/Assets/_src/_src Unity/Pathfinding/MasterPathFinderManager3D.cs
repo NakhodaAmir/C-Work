@@ -6,13 +6,13 @@ namespace MirJan
         {
             using GenericGraphs.GraphSearch;
             using GenericGraphs.GraphSearch.DynamicGraphSearch;
+            using MirJan.Helpers;
             using Helpers;
             using System;
             using System.Collections.Concurrent;
             using System.Collections.Generic;
             using System.Threading;
             using UnityEngine;
-            using MirJan.Helpers;
 
             public abstract class MasterPathFinderManager3D<Type> : SingletonBehaviour<MasterPathFinderManager3D<Type>>, IGraphSearchable<MasterPathFinderManager3D<Type>.Node, Type>
             {
@@ -32,7 +32,7 @@ namespace MirJan
 
                 [Header("MultiThreading")]
                 [Range(1f, 16f)]
-                public int NumberOfThreads = 3;
+                public int ThreadCount = 3;
                 #endregion
 
                 protected override void Awake()
@@ -41,7 +41,7 @@ namespace MirJan
 
                     CreateGraph();
 
-                    PathFindingAgent.RequestPathMethod = RequestPathMethod;
+                    PathFinderManager.Instance.Awake();
                 }
 
                 private void Update()
@@ -49,12 +49,10 @@ namespace MirJan
                     PathFinderManager.Instance.Update();
                 }
 
-                #region Path Finding Agent Methods
-                void RequestPathMethod(PathRequest pathRequest)
+                private void LateUpdate()
                 {
-                    PathFinderManager.RequestPath(pathRequest);
+                    PathFinderManager.Instance.LateUpdate();
                 }
-                #endregion
 
                 #region Graph 3D Interface
                 public abstract Node NodeFromWorldPoint(Vector3 worldPosition);
@@ -69,83 +67,105 @@ namespace MirJan
 
                 #region Path Finder Manager
                 public class PathFinderManager : SingletonClass<PathFinderManager>
-                {
-                    readonly ConcurrentQueue<PathRequest> incompleteJobs;
-                    readonly ConcurrentQueue<PathResult> completedJobs;
+                {                   
+                    readonly int threadCount = MasterPathFinderManager3D<Type>.Instance.ThreadCount;
 
-                    public PathFinderManager()
+                    readonly Lazy<PathFinder> pathFinder = new Lazy<PathFinder>();
+
+                    readonly ConcurrentQueue<PathRequest?> pathRequests = new ConcurrentQueue<PathRequest?>();
+                    readonly ConcurrentQueue<PathResult?> pathResults = new ConcurrentQueue<PathResult?>();
+
+                    public void Awake()
                     {
-                        incompleteJobs = new ConcurrentQueue<PathRequest>();
-                        completedJobs = new ConcurrentQueue<PathResult>();
+                        PathFindingAgent.RequestPath = EnqueuePathRequest;
                     }
 
                     public void Update()
                     {
-                        while(completedJobs.Count > 0)
-                        {                        
-                            if(completedJobs.TryDequeue(out PathResult pathResult))
-                            {
-                                pathResult.Callback(pathResult.Path, pathResult.IsSuccess);
-                            }                         
-                        }
-
-                        if(incompleteJobs.Count > 0 && completedJobs.Count < MasterPathFinderManager3D<Type>.Instance.NumberOfThreads)
+                        while(pathResults.Count > 0)
                         {
-                            if(incompleteJobs.TryDequeue(out PathRequest pathRequest))
+                            pathResults.TryDequeue(out PathResult? pathResult);
+
+                            if(pathResult != null)
                             {
-                                PathFinder pathFinder = new PathFinder();
-
-                                Thread thread = new Thread(() => pathFinder.FindPath(pathRequest, FinishedProcessingPath));
-
-                                thread.Start();
-                            }          
+                                pathResult?.Callback(pathResult?.Path, (bool)pathResult?.IsSuccess);
+                            }
                         }
                     }
 
-                    public static void RequestPath(PathRequest request)
+                    public void LateUpdate()
                     {
-                        Instance.incompleteJobs.Enqueue(request);
+                        while(pathRequests.Count > 0 && pathResults.Count < threadCount)
+                        {
+                            pathRequests.TryDequeue(out PathRequest? pathRequest);
+
+                            if(pathRequest != null)
+                            {
+                                Thread thread = new Thread(() => pathFinder.Value.FindPath((PathRequest)pathRequest, EnqueuePathResult));
+                                thread.Start();
+                            }
+                        }
                     }
 
-                    public void FinishedProcessingPath(PathResult result)
+                    public void EnqueuePathRequest(PathRequest pathRequest)
                     {
-                        completedJobs.Enqueue(result);     
+                        pathRequests.Enqueue(pathRequest);
                     }
+
+                    public void EnqueuePathResult(PathResult pathResult)
+                    {
+                        pathResults.Enqueue(pathResult);
+                    }
+
                 }
                 #endregion
 
                 #region Path Finder
                 public class PathFinder
-                {                  
+                {
                     readonly GraphSearcher<Node, Type> graphSearcher;
+                    readonly MasterPathFinderManager3D<Type> graph;
 
                     public PathFinder()
                     {
-                        if(Instance.searchType == SearchType.ASTAR_SEARCH)
+                        graph = Instance;
+
+                        if (graph.searchType == SearchType.ASTAR_SEARCH)
                         {
-                            graphSearcher = new AStarSearch<Node, Type>(Instance, false);
+                            graphSearcher = new AStarSearch<Node, Type>(graph, false);
                         }
-                        else if(Instance.searchType == SearchType.DIJKSTRA_SEARCH)
+                        else if (graph.searchType == SearchType.DIJKSTRA_SEARCH)
                         {
-                            graphSearcher= new DijkstraSearch<Node, Type>(Instance, false);
+                            graphSearcher = new DijkstraSearch<Node, Type>(graph, false);
                         }
-                        else if(Instance.searchType == SearchType.GREEDYBESTFIRST_SEARCH)
+                        else if (graph.searchType == SearchType.GREEDYBESTFIRST_SEARCH)
                         {
-                            graphSearcher = new GreedyBestFirstSearch<Node, Type>(Instance, false);
+                            graphSearcher = new GreedyBestFirstSearch<Node, Type>(graph, false);
                         }
-                        else//if(Instance.searchType == SearchType.FRINGE_SEARCH)
+                        else//if(Graph.searchType == SearchType.FRINGE_SEARCH)
                         {
-                            graphSearcher = new FringeSearch<Node, Type>(Instance, false);
+                            graphSearcher = new FringeSearch<Node, Type>(graph, false);
                         }
                     }
 
-                    public void FindPath(PathRequest pathRequest, Action<PathResult> callback)
+                    public void FindPath(PathRequest pathRequest, Action<PathResult> callBack)
                     {
-                        graphSearcher.Initialize(Instance.NodeFromWorldPoint(pathRequest.StartPosition), Instance.NodeFromWorldPoint(pathRequest.TargetPosition));
+                        lock (graphSearcher)
+                        {
+                            graphSearcher.Initialize(NodeFromWorldPoint(pathRequest.StartPosition), NodeFromWorldPoint(pathRequest.TargetPosition));
 
-                        while (graphSearcher.IsRunning) graphSearcher.Step();
+                            while (graphSearcher.IsRunning) graphSearcher.Step();
 
-                        callback(new PathResult(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded, pathRequest.Callback));
+                            callBack(new PathResult(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded, pathRequest.Callback));
+                        }             
+                    }
+
+                    Node NodeFromWorldPoint(Vector3 position)
+                    {
+                        lock (graph)
+                        {
+                            return graph.NodeFromWorldPoint(position);
+                        }
                     }
 
                     Vector3[] GetWayPoints(List<Node> pathList)

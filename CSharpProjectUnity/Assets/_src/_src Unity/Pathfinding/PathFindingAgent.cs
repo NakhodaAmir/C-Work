@@ -9,11 +9,11 @@ namespace MirJan
 
             public class PathFindingAgent : MonoBehaviour
             {
-                public delegate void RequestPath(PathRequest pathRequest);
-                public static RequestPath RequestPathMethod { get; set; }
+                public delegate void RequestPathDelegate(PathRequest pathRequest);
+                public static RequestPathDelegate RequestPath { get; set; }
 
-                const float MINIMUM_PATH_UPDATE_TIME = 0.2f;
-                const float PATH_UPDATE_THRESHOLD = 0.5f;
+                const float MINIMUM_PATH_UPDATE_TIME = 0f;
+                const float PATH_UPDATE_THRESHOLD = 0f;
 
                 public Transform target;
 
@@ -41,7 +41,7 @@ namespace MirJan
                 {
                     if (Time.timeSinceLevelLoad < 0.3f) yield return new WaitForSeconds(0.3f);
 
-                    RequestPathMethod(new PathRequest(transform.position, target.position, OnPathFound));
+                    RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
 
                     float sqrUpdateThreshold = PATH_UPDATE_THRESHOLD * PATH_UPDATE_THRESHOLD;
 
@@ -53,7 +53,7 @@ namespace MirJan
 
                         if ((target.position - targetPosOld).sqrMagnitude > sqrUpdateThreshold)
                         {
-                            RequestPathMethod(new PathRequest(transform.position, target.position, OnPathFound));
+                            RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
 
                             targetPosOld = target.position;
                         }

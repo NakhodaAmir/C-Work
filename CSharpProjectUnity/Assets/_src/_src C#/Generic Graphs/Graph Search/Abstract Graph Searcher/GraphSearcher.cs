@@ -74,7 +74,7 @@
 
                     var exclNode = retracePathInclSource ? null : SourceNode.GraphSearcherNode;
 
-                    while (currentNode != exclNode)
+                    while (!Equals(currentNode, exclNode))
                     {
                         PathList.Add((Node)currentNode.Location);
                         currentNode = RetraceImplementation(currentNode);
