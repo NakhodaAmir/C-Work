@@ -845,6 +845,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8937719642716369232, guid: 9c51ccabe249deb43bf281a5e2f376f7, type: 3}
+      propertyPath: displayGridGizmos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937719642716369232, guid: 9c51ccabe249deb43bf281a5e2f376f7, type: 3}
       propertyPath: obstacleMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -1818,7 +1822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1991145084
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,13 +4,13 @@ namespace MirJan
     {
         namespace PathFinding
         {
+            using System;
             using System.Collections;
             using UnityEngine;
 
             public class PathFindingAgent : MonoBehaviour
             {
-                public delegate void RequestPathDelegate(PathRequest pathRequest);
-                public static RequestPathDelegate RequestPath { get; set; }
+                public static Action<PathRequest> RequestPath { get; set; }
 
                 const float MINIMUM_PATH_UPDATE_TIME = 0f;
                 const float PATH_UPDATE_THRESHOLD = 0f;

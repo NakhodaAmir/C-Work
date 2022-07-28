@@ -1,0 +1,12 @@
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\bin\Debug\netstandard2.0\SingletonAnalyzer.deps.json
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\bin\Debug\netstandard2.0\SingletonAnalyzer.dll
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\bin\Debug\netstandard2.0\SingletonAnalyzer.pdb
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.csproj.AssemblyReference.cache
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.Resources.resources
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.csproj.GenerateResource.cache
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.AssemblyInfoInputs.cache
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.AssemblyInfo.cs
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.dll
+C:\Users\fmn00\Documents\C-Work\SingletonAnalyzer\SingletonAnalyzer\obj\Debug\netstandard2.0\SingletonAnalyzer.pdb
