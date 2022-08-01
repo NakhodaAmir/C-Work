@@ -9,7 +9,6 @@ namespace MirJan
                 namespace Utilities
                 {
                     using Helpers;
-                    using UnityEngine;
                     [System.Serializable]
                     public class GraphTerrainType
                     {

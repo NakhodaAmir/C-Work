@@ -4,42 +4,85 @@ namespace MirJan
     {
         namespace Helpers
         {
-            public abstract class SingletonBehaviour<T> : UnityEngine.MonoBehaviour where T : UnityEngine.MonoBehaviour
+            using System;
+            using UnityEngine;
+            public class SingletonBehaviour : MonoBehaviour
             {
-                public static T Instance => Lazy.instance;
+                #region Singleton
+                public static SingletonBehaviour Instance => Lazy.instance;
 
                 private class Lazy
                 {
                     static Lazy() { }
 
-                    internal static readonly T instance = CreateOrFindInstance();
-                    private static T CreateOrFindInstance()
+                    internal static readonly SingletonBehaviour instance = CreateInstance();
+                    
+                    private static SingletonBehaviour CreateInstance()
                     {
-                        T instance = FindObjectOfType<T>();
+                        SingletonBehaviour instance = FindObjectOfType<SingletonBehaviour>();
 
-                        if (instance == null)
+                        if(instance == null)
                         {
-                            UnityEngine.GameObject gameObject = new UnityEngine.GameObject() { name = typeof(T).Name };
-
-                            instance = gameObject.AddComponent<T>();
+                            GameObject gameObject = new GameObject("Singleton Behaviour");
+                            instance = gameObject.AddComponent<SingletonBehaviour>();
                         }
 
                         return instance;
                     }
                 }
+                #endregion
 
-                protected virtual void Awake()
+                #region Singleton Events
+                public event Action StartEvent = () => { };
+
+                public event Action FixedUpdateEvent = () => { };
+                public event Action UpdateEvent = () => { };
+                public event Action LateUpdateEvent = () => { };
+
+                public event Action OnApplicationQuitEvent = () => { };
+
+                public event Action OnDrawGizmosEvent = () => { };
+                #endregion
+
+                private void Awake()
                 {
-                    if (Instance != null && Instance != this)
+                    DontDestroyOnLoad(gameObject);
+                }
+
+                private void Start()
+                {
+                    StartEvent();
+                }
+
+                #region Unity Events
+                private void FixedUpdate()
+                {
+                    FixedUpdateEvent();
+                }
+
+                private void Update()
+                {
+                    UpdateEvent();
+                }
+
+                private void LateUpdate()
+                {
+                    LateUpdateEvent();
+                }
+
+                private void OnApplicationQuit()
+                {
+                    if (Instance != null)
                     {
-                        Destroy(gameObject);
+                        Destroy(this);
                     }
                 }
 
-                protected virtual void OnApplicationQuit()
+                private void OnDrawGizmos()
                 {
-                    Destroy(gameObject);
+                    OnDrawGizmosEvent();
                 }
+                #endregion
             }
         }
     }

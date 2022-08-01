@@ -10,19 +10,19 @@ namespace MirJan
             using System.Collections.Generic;
             using UnityEngine;
             using MirJan.Helpers;
-            public class PathFinder<Type>
+            public class PathFinder<Graph, Type> where Graph : PathFinderManager<Graph, Type>
             {
                 readonly GraphSearcher<Node, Type> graphSearcher;
-                readonly PathFinderManager<Type> graph;
+                readonly PathFinderManager<Graph, Type> graph;
 
-                public PathFinder(PathFinderManager<Type> graph)
+                public PathFinder(PathFinderManager<Graph, Type> graph)
                 {
-                    Factory<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Type>.SearchType.ASTAR_SEARCH, () => new AStarSearch<Node, Type>(graph, false));
-                    Factory<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Type>.SearchType.DIJKSTRA_SEARCH, () => new DijkstraSearch<Node, Type>(graph, false));
-                    Factory<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Type>.SearchType.GREEDYBESTFIRST_SEARCH, () => new GreedyBestFirstSearch<Node, Type>(graph, false));
-                    Factory<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Type>.SearchType.FRINGE_SEARCH, () => new FringeSearch<Node, Type>(graph, false));
+                    FactoryMethod<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Graph, Type>.SearchType.ASTAR_SEARCH, () => new AStarSearch<Node, Type>(graph, false));
+                    FactoryMethod<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Graph, Type>.SearchType.DIJKSTRA_SEARCH, () => new DijkstraSearch<Node, Type>(graph, false));
+                    FactoryMethod<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Graph, Type>.SearchType.GREEDYBESTFIRST_SEARCH, () => new GreedyBestFirstSearch<Node, Type>(graph, false));
+                    FactoryMethod<GraphSearcher<Node, Type>>.Register((int)PathFinderManager<Graph, Type>.SearchType.FRINGE_SEARCH, () => new FringeSearch<Node, Type>(graph, false));
 
-                    graphSearcher = Factory<GraphSearcher<Node, Type>>.Create((int)graph.searchType);
+                    graphSearcher = FactoryMethod<GraphSearcher<Node, Type>>.Create((int)graph.searchType);
 
                     this.graph = graph;
                 }

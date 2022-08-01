@@ -6,23 +6,22 @@ namespace MirJan
     {
         namespace PathFinding
         {
-            using System;
             using System.Collections.Concurrent;
             using System.Threading;
-            public class PathRequestManager<Type>
-            {
+            public class PathRequestManager<Graph, Type> where Graph : PathFinderManager<Graph, Type>
+            {              
                 readonly int threadCount;
 
-                readonly PathFinder<Type>pathFinder;
+                readonly PathFinder<Graph, Type> pathFinder;
 
                 readonly ConcurrentQueue<PathRequest?> pathRequests = new ConcurrentQueue<PathRequest?>();
                 readonly ConcurrentQueue<PathResult?> pathResults = new ConcurrentQueue<PathResult?>();
 
-                public PathRequestManager(PathFinderManager<Type> graph)
+                public PathRequestManager(PathFinderManager<Graph, Type> graph)
                 {
                     threadCount = graph.ThreadCount;
 
-                    pathFinder = new PathFinder<Type>(graph);
+                    pathFinder = new PathFinder<Graph, Type>(graph);
 
                     PathFindingAgent.RequestPath = EnqueuePathRequest;
                 }

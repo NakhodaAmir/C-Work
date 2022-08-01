@@ -12,8 +12,8 @@ namespace MirJan
             {
                 public static Action<PathRequest> RequestPath { get; set; }
 
-                const float MINIMUM_PATH_UPDATE_TIME = 0f;
-                const float PATH_UPDATE_THRESHOLD = 0f;
+                public static float MINIMUM_PATH_UPDATE_TIME { get; set; }
+                public static float PATH_UPDATE_THRESHOLD { get; set; }
 
                 public Transform target;
 
