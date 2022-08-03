@@ -10,14 +10,14 @@ namespace MirJan
 
             public class PathFindingAgent : MonoBehaviour
             {
-                public static Action<PathRequest> RequestPath { get; set; }
-
                 public static float MINIMUM_PATH_UPDATE_TIME { get; set; }
                 public static float PATH_UPDATE_THRESHOLD { get; set; }
 
                 public Transform target;
 
                 Vector3[] wayPoints;
+
+                PathRequest? currentPathRequest;
 
                 #region Debug
                 [Header("Debug")]
@@ -31,6 +31,9 @@ namespace MirJan
 
                 public void OnPathFound(Vector3[] wayPoints, bool IsSuccess)
                 {
+                    currentPathRequest?.Dispose();
+                    currentPathRequest = null;
+
                     if (IsSuccess)
                     {
                         this.wayPoints = wayPoints;
@@ -41,7 +44,7 @@ namespace MirJan
                 {
                     if (Time.timeSinceLevelLoad < 0.3f) yield return new WaitForSeconds(0.3f);
 
-                    RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+                    currentPathRequest = PathRequest.Create(transform.position, target.position, OnPathFound);
 
                     float sqrUpdateThreshold = PATH_UPDATE_THRESHOLD * PATH_UPDATE_THRESHOLD;
 
@@ -51,11 +54,14 @@ namespace MirJan
                     {
                         yield return new WaitForSeconds(MINIMUM_PATH_UPDATE_TIME);
 
-                        if ((target.position - targetPosOld).sqrMagnitude > sqrUpdateThreshold)
+                        if (currentPathRequest == null)
                         {
-                            RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+                            if ((target.position - targetPosOld).sqrMagnitude > sqrUpdateThreshold)
+                            {
+                                currentPathRequest = PathRequest.Create(transform.position, target.position, OnPathFound);
 
-                            targetPosOld = target.position;
+                                targetPosOld = target.position;
+                            }
                         }
                     }
                 }

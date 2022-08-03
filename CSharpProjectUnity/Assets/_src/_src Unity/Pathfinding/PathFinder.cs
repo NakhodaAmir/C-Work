@@ -14,31 +14,32 @@ namespace MirJan
                 readonly GraphSearcher<Node, Type> graphSearcher;
 
                 readonly PathFinderManager<Type> graph;
-
-                public PathFinder(PathFinderManager<Type> graph)
+                readonly Action<PathResult> callBack;
+                readonly PathRequest pathRequest;
+              
+                public PathFinder(PathFinderManager<Type> graph, PathRequest pathRequest, Action<PathResult> callBack)
                 {
                     this.graph = graph;
+                    this.pathRequest = pathRequest;
+                    this.callBack = callBack;
                     graphSearcher = new AStarSearch<Node, Type>(graph);
                 }
 
-                public void FindPath(PathRequest pathRequest, Action<PathResult> callBack)
+                public void FindPath()
                 {
-                    lock (graphSearcher)
+                    graphSearcher.Initialize(NodeFromWorldPoint(pathRequest.StartPosition), NodeFromWorldPoint(pathRequest.TargetPosition));
+
+                    if (!graphSearcher.TargetNode.IsWalkable || !graphSearcher.SourceNode.IsWalkable)
                     {
-                        graphSearcher.Initialize(NodeFromWorldPoint(pathRequest.StartPosition), NodeFromWorldPoint(pathRequest.TargetPosition));
-
-                        if (!graphSearcher.TargetNode.IsWalkable || !graphSearcher.SourceNode.IsWalkable)
-                        {
-                            graphSearcher.ForceReset();
-                            callBack(new PathResult(null, false, pathRequest.Callback));
-                            return;
-                        }
-
-                        while (graphSearcher.IsRunning) graphSearcher.Step();
-
-                        callBack(new PathResult(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded, pathRequest.Callback));
+                        graphSearcher.ForceReset();
+                        callBack(new PathResult(null, false, pathRequest.Callback));
                         return;
                     }
+
+                    while (graphSearcher.IsRunning) graphSearcher.Step();
+
+                    callBack(new PathResult(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded, pathRequest.Callback));
+                    return;
                 }
 
                 Node NodeFromWorldPoint(Vector3 position)

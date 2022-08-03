@@ -14,35 +14,30 @@ namespace MirJan
             {              
                 readonly int maxThreadCount;
 
-                readonly ConcurrentQueue<PathRequest?> pathRequests = new ConcurrentQueue<PathRequest?>();
-
-                readonly PathFinder<Type> pathFinder;
+                readonly ConcurrentQueue<PathFinder<Type>> jobs = new ConcurrentQueue<PathFinder<Type>>();
 
                 volatile int activeThreadCount = 0;
+
+                readonly PathFinderManager<Type> graph;
 
                 public PathRequestManager(PathFinderManager<Type> graph)
                 {
                     maxThreadCount = graph.ThreadCount;
 
-                    PathFindingAgent.RequestPath = EnqueuePathRequest;
+                    PathRequest.RequestPath = EnqueuePathRequest;
 
-                    pathFinder = new PathFinder<Type>(graph);
+                    this.graph = graph;
                 }
 
                 public void Update()
                 {
-
-                }
-
-                public void LateUpdate()
-                {
-                    while (pathRequests.Count > 0 && activeThreadCount < maxThreadCount)
+                    if (jobs.Count > 0 && activeThreadCount < maxThreadCount)
                     {
-                        pathRequests.TryDequeue(out PathRequest? pathRequest);
+                        jobs.TryDequeue(out PathFinder<Type> job);
 
-                        if (pathRequest != null)
+                        if (job != null)
                         {
-                            Thread thread = new Thread(() => pathFinder.FindPath((PathRequest)pathRequest, PathResultCallBack));
+                            Thread thread = new Thread(job.FindPath);
                             thread.Start();
                             activeThreadCount++;
                         }
@@ -51,7 +46,8 @@ namespace MirJan
 
                 public void EnqueuePathRequest(PathRequest pathRequest)
                 {
-                    pathRequests.Enqueue(pathRequest);
+                    PathFinder<Type> pathFinder = new PathFinder<Type>(graph, pathRequest, PathResultCallBack);
+                    jobs.Enqueue(pathFinder);
                 }
 
                 public void PathResultCallBack(PathResult pathResult)

@@ -35,9 +35,9 @@ namespace MirJan
                     CreateGraph();
                 }
 
-                private void LateUpdate()
+                private void Update()
                 {
-                    pathRequestManager.LateUpdate();
+                    pathRequestManager.Update();
                 }
 
                 #region Graph 3D Interface
