@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &763077692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,10 +802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe36c9ac7a8df0d4f91a90ab848b4781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchType: 0
   minimumPathUpdateTime: 0
   pathUpdateThreshold: 0
-  ThreadCount: 5
+  ThreadCount: 2
   heuristicType: 1
   obstacleMask:
     serializedVersion: 2
@@ -1124,7 +1123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1021990729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,7 +1773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1991145084
 MonoBehaviour:
   m_ObjectHideFlags: 0

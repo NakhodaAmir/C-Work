@@ -49,6 +49,11 @@
 
                 return StepMethod();
             }
+
+            public void ForceReset()
+            {
+                Reset();
+            }
             #endregion
 
             #region Protected & Private Methods

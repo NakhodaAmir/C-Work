@@ -17,7 +17,7 @@
                 #endregion
 
                 #region Constructor
-                public FringeSearch(IGraphSearchable<Node, Type> graph, bool retracePathInclSource = true) : base(graph, retracePathInclSource)
+                public FringeSearch(IGraphSearchable<Node, Type> graph) : base(graph)
                 {
                     FringeList = new System.Collections.Generic.LinkedList<GraphSearcherNode<Type>>();
 

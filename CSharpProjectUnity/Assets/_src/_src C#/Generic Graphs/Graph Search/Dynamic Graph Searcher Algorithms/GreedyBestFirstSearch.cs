@@ -8,7 +8,7 @@
             {
                 public class GreedyBestFirstSearch<Node, Type> : DynamicGraphSearcher<Node, Type> where Node : GraphSearchableNode<Type>
                 {
-                    public GreedyBestFirstSearch(IGraphSearchable<Node, Type> graph, bool retracePathInclSource = true) : base(graph, retracePathInclSource) { }
+                    public GreedyBestFirstSearch(IGraphSearchable<Node, Type> graph) : base(graph) { }
 
                     protected override void AlgorithmSpecificImplementation(Node neighbour)
                     {

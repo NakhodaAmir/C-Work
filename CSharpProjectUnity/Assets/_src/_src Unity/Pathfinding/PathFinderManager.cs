@@ -11,22 +11,10 @@ namespace MirJan
             using UnityEngine;
             using UnityEngine.SceneManagement;
 
-            public abstract class PathFinderManager<Graph, Type> : MonoBehaviour, IGraphSearchable<PathFinder<Graph, Type>.Node, Type> where Graph : PathFinderManager<Graph, Type>
+            public abstract class PathFinderManager<Type> : MonoBehaviour, IGraphSearchable<PathFinder<Type>.Node, Type>
             {
-                #region Enum
-                public enum SearchType
-                {
-                    ASTAR_SEARCH,
-                    DIJKSTRA_SEARCH,
-                    GREEDYBESTFIRST_SEARCH,
-                    FRINGE_SEARCH
-                }
-                #endregion
-
                 #region Public Variables
                 [Header("Path Finding Attributes")]
-                public SearchType searchType;
-
                 public float minimumPathUpdateTime;
                 public float pathUpdateThreshold;
 
@@ -35,21 +23,16 @@ namespace MirJan
                 public int ThreadCount = 3;
                 #endregion
 
-                PathRequestManager<Graph, Type> pathRequestManager;
+                PathRequestManager<Type> pathRequestManager;
 
                 private void Awake()
                 {                  
-                    pathRequestManager = new PathRequestManager<Graph, Type>(this);
+                    pathRequestManager = new PathRequestManager<Type>(this);
 
                     PathFindingAgent.MINIMUM_PATH_UPDATE_TIME = minimumPathUpdateTime;
                     PathFindingAgent.PATH_UPDATE_THRESHOLD = pathUpdateThreshold;
 
                     CreateGraph();
-                }
-
-                private void Update()
-                {
-                    pathRequestManager.Update();
                 }
 
                 private void LateUpdate()
@@ -58,12 +41,12 @@ namespace MirJan
                 }
 
                 #region Graph 3D Interface
-                public abstract PathFinder<Graph, Type>.Node NodeFromWorldPoint(Vector3 worldPosition);
+                public abstract PathFinder<Type>.Node NodeFromWorldPoint(Vector3 worldPosition);
                 public abstract void CreateGraph();
                 #endregion
 
                 #region Graph Searchable Interface
-                public abstract List<PathFinder<Graph, Type>.Node> GetNeighbourNodes(PathFinder<Graph, Type>.Node node);
+                public abstract List<PathFinder<Type>.Node> GetNeighbourNodes(PathFinder<Type>.Node node);
                 public abstract float HeuristicCost(Type valueA, Type valueB);
                 public abstract float NodeTraversalCost(Type valueA, Type valueB);
                 #endregion

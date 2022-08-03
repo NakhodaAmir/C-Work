@@ -33,12 +33,10 @@
 
                 #region Variables
                 protected readonly IGraphSearchable<Node, Type> graph;
-
-                protected readonly bool retracePathInclSource;
                 #endregion
 
                 #region Constructor
-                public GraphSearcher(IGraphSearchable<Node, Type> graph, bool retracePathInclSource = true) : base()
+                public GraphSearcher(IGraphSearchable<Node, Type> graph) : base()
                 {
                     TargetNode = null;
 
@@ -47,8 +45,6 @@
                     PathList = new System.Collections.Generic.List<Node>();
 
                     this.graph = graph;
-
-                    this.retracePathInclSource = retracePathInclSource;
                 }
                 #endregion
 
@@ -72,9 +68,7 @@
                 {
                     var currentNode = CurrentNode;
 
-                    var exclNode = retracePathInclSource ? null : SourceNode.GraphSearcherNode;
-
-                    while (!Equals(currentNode, exclNode))
+                    while (!Equals(currentNode, null))
                     {
                         PathList.Add((Node)currentNode.Location);
                         currentNode = RetraceImplementation(currentNode);

@@ -8,47 +8,43 @@ namespace MirJan
         {
             using System.Collections.Concurrent;
             using System.Threading;
-            public class PathRequestManager<Graph, Type> where Graph : PathFinderManager<Graph, Type>
-            {              
-                readonly int threadCount;
+            using UnityEngine;
 
-                readonly PathFinder<Graph, Type> pathFinder;
+            public class PathRequestManager<Type>
+            {              
+                readonly int maxThreadCount;
 
                 readonly ConcurrentQueue<PathRequest?> pathRequests = new ConcurrentQueue<PathRequest?>();
-                readonly ConcurrentQueue<PathResult?> pathResults = new ConcurrentQueue<PathResult?>();
 
-                public PathRequestManager(PathFinderManager<Graph, Type> graph)
+                readonly PathFinder<Type> pathFinder;
+
+                volatile int activeThreadCount = 0;
+
+                public PathRequestManager(PathFinderManager<Type> graph)
                 {
-                    threadCount = graph.ThreadCount;
-
-                    pathFinder = new PathFinder<Graph, Type>(graph);
+                    maxThreadCount = graph.ThreadCount;
 
                     PathFindingAgent.RequestPath = EnqueuePathRequest;
+
+                    pathFinder = new PathFinder<Type>(graph);
                 }
 
                 public void Update()
                 {
-                    while (pathResults.Count > 0)
-                    {
-                        pathResults.TryDequeue(out PathResult? pathResult);
 
-                        if (pathResult != null)
-                        {
-                            pathResult?.Callback(pathResult?.Path, (bool)pathResult?.IsSuccess);
-                        }
-                    }
                 }
 
                 public void LateUpdate()
                 {
-                    while (pathRequests.Count > 0 && pathResults.Count < threadCount)
+                    while (pathRequests.Count > 0 && activeThreadCount < maxThreadCount)
                     {
                         pathRequests.TryDequeue(out PathRequest? pathRequest);
 
                         if (pathRequest != null)
                         {
-                            Thread thread = new Thread(() => pathFinder.FindPath((PathRequest)pathRequest, EnqueuePathResult));
+                            Thread thread = new Thread(() => pathFinder.FindPath((PathRequest)pathRequest, PathResultCallBack));
                             thread.Start();
+                            activeThreadCount++;
                         }
                     }
                 }
@@ -58,9 +54,10 @@ namespace MirJan
                     pathRequests.Enqueue(pathRequest);
                 }
 
-                public void EnqueuePathResult(PathResult pathResult)
+                public void PathResultCallBack(PathResult pathResult)
                 {
-                    pathResults.Enqueue(pathResult);
+                    pathResult.Callback(pathResult.Path, pathResult.IsSuccess);
+                    activeThreadCount--;
                 }
 
             }
