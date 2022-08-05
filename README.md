@@ -1,7 +1,6 @@
 # [Source Code](CSharpProjectUnity/Assets/_src)
 ## [C# Specific Code](CSharpProjectUnity/Assets/_src/_src%20C%23)
 - [**Generic Graphs**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs)
-  <br>***Contents***
     - [***Abstract Graph Algorithm***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Algorithm)
       <br>The generic abstract class used to create the ***Graph Algorithms***.
     - [***Abstract Graph Nodes***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes)
@@ -33,14 +32,12 @@
         - [***Breadth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/BreadthFirstSearch.cs)
         - [***Depth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes)
-  <br>***Contents***
   - [***Enumeration Class***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Enumeration%20Class)
   - [***Finite State Machine & State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine)
     - [***Finite State Machine***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs)
     - [***State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachineState.cs)
     <br>The state used by the [***Finite State Machine***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs).
 - [**Priority Queues**](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues)
-  <br>***Contents***
   - [***D-Ary Heap***](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/DAryHeap.cs)
   - [***Pairing Heap***](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/PairingHeap.cs)
 ## [Unity Code](CSharpProjectUnity/Assets/_src/_src%20Unity)
