@@ -52,7 +52,7 @@
     
     public class ExampleState : FiniteStateMachineState
     {
-        public ExampleState(FiniteStateMachine fsm) : base(fsm)
+        public ExampleState(FiniteStateMachine fsm) : base(fsm) { }
         
         public ovveride void Enter() { }
         public ovveride void Exit() { }
