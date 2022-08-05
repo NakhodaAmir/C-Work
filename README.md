@@ -33,6 +33,17 @@
         - [***Depth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes)
   - [***Enumeration Class***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Enumeration%20Class)
+  ```cs
+  using MirJan.Helpers
+    
+    public class ExampleEnumeration : Enumeration
+    {
+        public static readonly ExampleEnumeration EXAMPLE_ONE = new ExampleEnumeration(nameof(EXAMPLE_ONE));
+        public static readonly ExampleEnumeration EXAMPLE_TWO = new ExampleEnumeration(nameof(EXAMPLE_TWO));
+        
+        private ExampleEnumeration(string name) : base(name) { }
+    }
+  ```
   - [***Finite State Machine & State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine)
     - [***Finite State Machine***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs)
     - [***State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachineState.cs)
