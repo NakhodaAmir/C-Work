@@ -31,6 +31,51 @@
         <br>The generic abstract class used to create the [***Graph Traverse Algorithms***](C-Work/tree/main/CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
         - [***Breadth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/BreadthFirstSearch.cs)
         - [***Depth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
+  ```cs
+  using MirJan.GenericGraphs;
+  
+  public class ExampleGraph : IGraphSearchable<Node, Vector2>
+  {
+    Node SourceNode;
+    Node TargetNode;
+    
+    public void ExampleMethod()
+    {
+        AStarSearch aStarSearch = new AStarSearch<Node, Vector2>(this);
+        
+        aStarSearch.Initialize(SourceNode, TargetNode);
+        
+        while (aStarSearch.IsRunning) aStarSearch.Step();
+        
+        
+        BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch<Node, Vector2>(this);
+        
+        breadthFirstSearch.Initialize(SourceNode);
+        
+        while (breadthFirstSearch.IsRunning) breadthFirstSearch.Step();
+    }
+    
+    public List<Node> GetNeighbourNodes(.Node node)
+    {
+        throw new NotImplementedException(); 
+    }
+    
+    public float HeuristicCost(Type valueA, Type valueB)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public float NodeTraversalCost(Type valueA, Type valueB)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public class Node : GraphSearchableNode<Vector2>
+    {
+        public Node(Vector2 value) : base(value) { }
+    }
+  }
+  ```
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes)
   - [***Enumeration Class***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Enumeration%20Class)
   ```cs
