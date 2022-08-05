@@ -34,7 +34,7 @@
   ```cs
   using MirJan.GenericGraphs;
   
-  public class ExampleGraph : IGraphSearchable<Node, Vector2>
+  public class ExampleGraph : IGraphSearchable<ExampleGraph.Node, Vector2>
   {
     Node SourceNode;
     Node TargetNode;
