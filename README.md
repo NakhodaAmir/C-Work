@@ -83,7 +83,7 @@
         while (depthFirstSearch.IsRunning) depthFirstSearch.Step();
     }
     
-    public List<Node> GetNeighbourNodes(.Node node)
+    public List<Node> GetNeighbourNodes(Node node)
     {
         throw new NotImplementedException(); 
     }
