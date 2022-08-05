@@ -12,8 +12,10 @@ namespace MirJan
                     [System.Serializable]
                     public class GraphTerrainType
                     {
+                        #region Public Variables
                         public SingleLayerMask terrainMask;
                         public int terrainPenalty;
+                        #endregion
                     }
                 }
             }

@@ -10,7 +10,7 @@ namespace MirJan
                 using UnityEngine;
                 using Utilities;
 
-                public class GridGraph : PathFinderManager<Vector2Int>
+                public class GridGraph : PathFinderManager<GridGraph, Vector2Int>
                 {
                     #region Enum
                     public enum HeuristicType
@@ -41,7 +41,7 @@ namespace MirJan
                     #region Private Variables
                     readonly Dictionary<int, int> walkableRegionsDictionary = new Dictionary<int, int>();
                     LayerMask walkableMask;
-                    PathFinder<Vector2Int>.Node[,] grid;
+                    PathFinder<GridGraph, Vector2Int>.Node[,] grid;
                     float nodeDiameter;
                     int gridSizeX, gridSizeY;
                     int minPenalty = int.MaxValue;
@@ -60,7 +60,7 @@ namespace MirJan
                             walkableRegionsDictionary.Add((int)Mathf.Log(region.terrainMask.Value, 2), region.terrainPenalty);
                         }
 
-                        grid = new PathFinder<Vector2Int>.Node[gridSizeX, gridSizeY];
+                        grid = new PathFinder<GridGraph, Vector2Int>.Node[gridSizeX, gridSizeY];
 
                         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
 
@@ -85,7 +85,7 @@ namespace MirJan
                                     movementPenalty += obstacleProximityPenalty;
                                 }
 
-                                grid[x, y] = new PathFinder<Vector2Int>.Node(worldPoint, isWalkable, new Vector2Int(x, y), movementPenalty);
+                                grid[x, y] = new PathFinder<GridGraph, Vector2Int>.Node(worldPoint, isWalkable, new Vector2Int(x, y), movementPenalty);
                             }
                         }
 
@@ -151,9 +151,9 @@ namespace MirJan
                     }
 
                     #region Public Methods
-                    public override List<PathFinder<Vector2Int>.Node> GetNeighbourNodes(PathFinder<Vector2Int>.Node node)
+                    public override List<PathFinder<GridGraph, Vector2Int>.Node> GetNeighbourNodes(PathFinder<GridGraph, Vector2Int>.Node node)
                     {
-                        List<PathFinder<Vector2Int>.Node> neighbours = new List<PathFinder<Vector2Int>.Node>();
+                        List<PathFinder<GridGraph, Vector2Int>.Node> neighbours = new List<PathFinder<GridGraph, Vector2Int>.Node>();
 
                         for (int x = -1; x <= 1; x++)
                         {
@@ -203,7 +203,7 @@ namespace MirJan
                         return HeuristicCost(valueA, valueB);
                     }
 
-                    public override PathFinder<Vector2Int>.Node NodeFromWorldPoint(Vector3 worldPosition)
+                    public override PathFinder<GridGraph, Vector2Int>.Node NodeFromWorldPoint(Vector3 worldPosition)
                     {
                         float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
                         float percentY = (worldPosition.z + gridWorldSize.y / 2) / gridWorldSize.y;
@@ -222,7 +222,7 @@ namespace MirJan
                         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
                         if (grid != null && displayGridGizmos)
                         {
-                            foreach (PathFinder<Vector2Int>.Node n in grid)
+                            foreach (PathFinder<GridGraph, Vector2Int>.Node n in grid)
                             {
 
                                 Gizmos.color = Color.Lerp(Color.white, Color.black, Mathf.InverseLerp(minPenalty, maxPenalty, n.GraphSearcherNode.PCost));

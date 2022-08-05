@@ -9,10 +9,19 @@ namespace MirJan
             [System.Serializable]
             public class SingleLayerMask
             {
-                [SerializeField]
-                private int layerIndex = 0;
+                #region Properties
                 public int LayerIndex { get { return layerIndex; } }
 
+                public int Value { get { return 1 << layerIndex; } }
+                #endregion
+
+                #region Variables
+                [SerializeField]
+                private int layerIndex = 0;
+                #endregion
+
+
+                #region Public Methods
                 public void Set(int layerIndex)
                 {
                     if(layerIndex > 0 && layerIndex < 32)
@@ -20,8 +29,7 @@ namespace MirJan
                         this.layerIndex = layerIndex;
                     }
                 }
-
-                public int Value { get { return 1 << layerIndex; } }
+                #endregion
             }
         }
     }

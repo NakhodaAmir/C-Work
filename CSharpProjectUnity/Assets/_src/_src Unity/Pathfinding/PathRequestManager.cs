@@ -1,5 +1,3 @@
-
-
 namespace MirJan
 {
     namespace Unity
@@ -7,55 +5,114 @@ namespace MirJan
         namespace PathFinding
         {
             using System.Collections.Concurrent;
+            using System.Collections.Generic;
             using System.Threading;
-            using UnityEngine;
 
-            public class PathRequestManager<Type>
-            {              
-                readonly int maxThreadCount;
+            public class PathRequestManager<Graph, Type> where Graph : PathFinderManager<Graph, Type>
+            {
+                #region Singleton
+                private PathRequestManager() { }
 
-                readonly ConcurrentQueue<PathFinder<Type>> jobs = new ConcurrentQueue<PathFinder<Type>>();
+                public static PathRequestManager<Graph, Type> Instance => Lazy.instance;
 
-                volatile int activeThreadCount = 0;
-
-                readonly PathFinderManager<Type> graph;
-
-                public PathRequestManager(PathFinderManager<Type> graph)
+                private class Lazy
                 {
-                    maxThreadCount = graph.ThreadCount;
+                    static Lazy() { }
 
-                    PathRequest.RequestPath = EnqueuePathRequest;
+                    internal readonly static PathRequestManager<Graph, Type> instance = new PathRequestManager<Graph, Type>();
+                }
+                #endregion
 
-                    this.graph = graph;
+                #region Variables
+                PathfindingThread<Graph, Type>[] threads;
+
+                public object QueueLock = new object();
+                readonly Queue<PathRequest> pendingPathRequests = new Queue<PathRequest>();
+                #endregion
+
+                #region Public Methods
+                public void Awake()
+                {
+                    CreateThreads(PathFinderManager<Graph, Type>.Instance.ThreadCount);
+                    StartThreads();
                 }
 
-                public void Update()
-                {
-                    if (jobs.Count > 0 && activeThreadCount < maxThreadCount)
-                    {
-                        jobs.TryDequeue(out PathFinder<Type> job);
 
-                        if (job != null)
+                public void LateUpdate()
+                {
+                    if (threads == null || threads.Length == 0) return;
+
+                    lock (QueueLock)
+                    {
+
+                        while (pendingPathRequests.Count > 0)
                         {
-                            Thread thread = new Thread(job.FindPath);
-                            thread.Start();
-                            activeThreadCount++;
+                            PathRequest pathRequest = pendingPathRequests.Dequeue();
+
+                            int lowest = int.MaxValue;
+                            PathfindingThread<Graph, Type> t = null;
+
+                            foreach (var thread in threads)
+                            {
+                                if (thread.PathRequestQueue.Count < lowest)
+                                {
+                                    lowest = thread.PathRequestQueue.Count;
+                                    t = thread;
+                                }
+                            }
+
+                            t.PathRequestQueue.Enqueue(pathRequest);
                         }
                     }
                 }
 
                 public void EnqueuePathRequest(PathRequest pathRequest)
                 {
-                    PathFinder<Type> pathFinder = new PathFinder<Type>(graph, pathRequest, PathResultCallBack);
-                    jobs.Enqueue(pathFinder);
+                    lock (QueueLock)
+                    {
+                        pendingPathRequests.Enqueue(pathRequest);
+                    }
                 }
 
-                public void PathResultCallBack(PathResult pathResult)
+                public void CreateThreads(int number)
                 {
-                    pathResult.Callback(pathResult.Path, pathResult.IsSuccess);
-                    activeThreadCount--;
+                    if (threads != null) return;
+
+                    threads = new PathfindingThread<Graph, Type>[number];
+
+                    for (int i = 0; i < number; i++)
+                    {
+                        threads[i] = new PathfindingThread<Graph, Type>(i);
+                    }
                 }
 
+                public void StartThreads()
+                {
+                    if (threads == null) return;
+
+                    for (int i = 0; i < threads.Length; i++)
+                    {
+                        var t = threads[i];
+                        t.StartThread();
+                    }
+                }
+
+                public void StopThreads()
+                {
+                    if (threads == null) return;
+
+                    for (int i = 0; i < threads.Length; i++)
+                    {
+                        var t = threads[i];
+                        t.StopThread();
+                    }
+                }
+
+                public void OnApplicationQuit()
+                {
+                    if (threads != null) StopThreads();
+                }
+                #endregion
             }
         }
     }

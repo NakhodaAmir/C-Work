@@ -10,34 +10,68 @@ namespace MirJan
 
             public class PathFindingAgent : MonoBehaviour
             {
+                #region Static Variables
                 public static float MINIMUM_PATH_UPDATE_TIME { get; set; }
                 public static float PATH_UPDATE_THRESHOLD { get; set; }
+                #endregion
 
+                #region Variables
                 public Transform target;
 
                 Vector3[] wayPoints;
 
                 PathRequest? currentPathRequest;
 
+                bool isFindingPath;
+                #endregion
+
+                #region Properties
+                public Vector3[] WayPoints { get { return wayPoints; } }
+                public bool IsPathSuccess { get; private set; }
+                #endregion
+
                 #region Debug
                 [Header("Debug")]
                 public bool displayPathGizmos;
                 #endregion
 
-                void Start()
+                #region Public Methods
+                public void FindPath()
                 {
-                    StartCoroutine(UpdatePath());
+                    if (isFindingPath) return;
+
+                    isFindingPath = true;
+                    StartCoroutine("UpdatePath");
                 }
 
-                public void OnPathFound(Vector3[] wayPoints, bool IsSuccess)
+                public void StopFindingPath()
+                {
+                    if (!isFindingPath) return;
+
+                    isFindingPath = false;
+                    StopCoroutine("UpdatePath");
+                }
+                #endregion
+
+                #region Protected and Private Methods
+                protected virtual void OnPathFound() { }
+                protected virtual void OnPathFailed() { }
+
+                void OnPathFound(Vector3[] wayPoints, bool IsSuccess)
                 {
                     currentPathRequest?.Dispose();
                     currentPathRequest = null;
 
-                    if (IsSuccess)
+                    IsPathSuccess = IsSuccess;
+
+                    if (!IsSuccess)
                     {
-                        this.wayPoints = wayPoints;
+                        OnPathFailed();
+                        return;
                     }
+
+                    this.wayPoints = wayPoints;
+                    OnPathFound();
                 }
 
                 IEnumerator UpdatePath()
@@ -65,7 +99,9 @@ namespace MirJan
                         }
                     }
                 }
+                #endregion
 
+                #region Debug
                 public void OnDrawGizmos()
                 {
                     if(wayPoints != null && displayPathGizmos)
@@ -84,6 +120,7 @@ namespace MirJan
                         }
                     }
                 }
+                #endregion
             }
         }
     }

@@ -9,46 +9,46 @@ namespace MirJan
             using System;
             using System.Collections.Generic;
             using UnityEngine;
-            public class PathFinder<Type>
+            public class PathFinder<Graph, Type> where Graph : PathFinderManager<Graph, Type>
             {
+                #region Variables
                 readonly GraphSearcher<Node, Type> graphSearcher;
+                #endregion
 
-                readonly PathFinderManager<Type> graph;
-                readonly Action<PathResult> callBack;
-                readonly PathRequest pathRequest;
-              
-                public PathFinder(PathFinderManager<Type> graph, PathRequest pathRequest, Action<PathResult> callBack)
+                #region Constructor
+                public PathFinder()
                 {
-                    this.graph = graph;
-                    this.pathRequest = pathRequest;
-                    this.callBack = callBack;
-                    graphSearcher = new AStarSearch<Node, Type>(graph);
+                    graphSearcher = new FringeSearch<Node, Type>(PathFinderManager<Graph, Type>.Instance);
                 }
+                #endregion
 
-                public void FindPath()
+                #region Public Methods
+                public void FindPath(PathRequest pathRequest)
                 {
                     graphSearcher.Initialize(NodeFromWorldPoint(pathRequest.StartPosition), NodeFromWorldPoint(pathRequest.TargetPosition));
 
                     if (!graphSearcher.TargetNode.IsWalkable || !graphSearcher.SourceNode.IsWalkable)
                     {
                         graphSearcher.ForceReset();
-                        callBack(new PathResult(null, false, pathRequest.Callback));
+                        pathRequest.Callback(null, false);
                         return;
                     }
 
                     while (graphSearcher.IsRunning) graphSearcher.Step();
 
-                    callBack(new PathResult(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded, pathRequest.Callback));
+                    pathRequest.Callback(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded);
                     return;
                 }
+                #endregion
 
+                #region Private Methods
                 Node NodeFromWorldPoint(Vector3 position)
                 {
                     Node node;
 
-                    lock (graph)
+                    lock (PathFinderManager<Graph, Type>.Instance)
                     {
-                        node = graph.NodeFromWorldPoint(position);
+                        node = PathFinderManager<Graph, Type>.Instance.NodeFromWorldPoint(position);
                     }
 
                     return node;
@@ -68,7 +68,9 @@ namespace MirJan
 
                     return wayPoints;
                 }
+                #endregion
 
+                #region Path Finder Node
                 public class Node : GraphSearchableNode<Type>
                 {
                     public Vector3 WorldPosition { get; private set; }
@@ -80,6 +82,7 @@ namespace MirJan
                         IsWalkable = isWalkable;
                     }
                 }
+                #endregion
             }
         }
     }
