@@ -34,7 +34,7 @@
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes)
   - [***Enumeration Class***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Enumeration%20Class)
   ```cs
-  using MirJan.Helpers
+  using MirJan.Helpers;
     
     public class ExampleEnumeration : Enumeration
     {
@@ -48,30 +48,30 @@
     - [***Finite State Machine***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs)
     - [***State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachineState.cs)
     <br>The state used by the [***Finite State Machine***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs).
-    ```cs
-    using MirJan.Helpers
-    
+   ```cs
+    using MirJan.Helpers;
+
     public class Example
     {
         public FiniteStateMachine FSM = new FiniteStateMachine();
-        
+
         void ExampleMethod()
         {
             FSM.Add(0, new ExampleState(FSM));
         }
     }
-    
+
     public class ExampleState : FiniteStateMachineState
     {
         public ExampleState(FiniteStateMachine fsm) : base(fsm) { }
-        
+
         public ovveride void Enter() { }
         public ovveride void Exit() { }
         public ovveride void Update() { }
         public ovveride void FixedUpdate() { }
         public ovveride void LateUpdate() { }
     }
-    ```
+   ```
 - [**Priority Queues**](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues)
   - [***D-Ary Heap***](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/DAryHeap.cs)
   ```cs
