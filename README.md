@@ -48,11 +48,39 @@
         while (aStarSearch.IsRunning) aStarSearch.Step();
         
         
+        DijkstraSearch dijkstraSearch = new DijkstraSearch<Node, Vector2>(this);
+        
+        dijkstraSearch.Initialize(SourceNode, TargetNode);
+        
+        while (dijkstraSearch.IsRunning) dijkstraSearch.Step();
+        
+        
+        GreedyBestFirstSearch greedyBestFirstSearch = new GreedyBestFirstSearch<Node, Vector2>(this);
+        
+        greedyBestFirstSearch.Initialize(SourceNode, TargetNode);
+        
+        while (greedyBestFirstSearch.IsRunning) greedyBestFirstSearch.Step();
+        
+        
+        FringeSearch fringeSearch = new FringeSearch<Node, Vector2>(this);
+        
+        fringeSearch.Initialize(SourceNode, TargetNode);
+        
+        while (fringeSearch.IsRunning) fringeSearch.Step();
+        
+        
         BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch<Node, Vector2>(this);
         
         breadthFirstSearch.Initialize(SourceNode);
         
         while (breadthFirstSearch.IsRunning) breadthFirstSearch.Step();
+        
+        
+        DepthFirstSearch depthFirstSearch = new DepthFirstSearch<Node, Vector2>(this);
+        
+        depthFirstSearch.Initialize(SourceNode);
+        
+        while (depthFirstSearch.IsRunning) depthFirstSearch.Step();
     }
     
     public List<Node> GetNeighbourNodes(.Node node)
