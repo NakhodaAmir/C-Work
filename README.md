@@ -88,12 +88,12 @@
         throw new NotImplementedException(); 
     }
     
-    public float HeuristicCost(Type valueA, Type valueB)
+    public float HeuristicCost(Vector2 valueA, Vector2 valueB)
     {
         throw new NotImplementedException();
     }
     
-    public float NodeTraversalCost(Type valueA, Type valueB)
+    public float NodeTraversalCost(Vector2 valueA, Vector2 valueB)
     {
         throw new NotImplementedException();
     }
