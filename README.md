@@ -7,12 +7,12 @@
     - [***Abstract Graph Nodes***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes)
       <br>Represents a vertex of the graph data structure. The type of node is relative to the type of graph denoted by its [***Graph Interface***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces).
        - [***GraphSearchableNode***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes/GraphSearchableNode.cs)
-        <br> Present in graphs inheriting the [***Graph Interface: IGraphSearchable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphTraversable.cs).
+        <br> Present in graphs inheriting the [***Graph Interface: IGraphSearchable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphSearchable.cs).
         - [***GraphTraversableNode***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes/GraphTraversableNode.cs)
         <br> Present in graphs inheriting the [***Graph Interface: IGraphTraversable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphTraversable.cs).
     - [***Graph Interfaces***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces)
       <br> Interface used to create a graph data structure.
-      - [***IGraphSearchable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphTraversable.c)
+      - [***IGraphSearchable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphSearchable.cs)
       <br> Graphs inheriting from this interface has access to the [***Graph Algorithms: Graph Search Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search) and [***Graph Algorithms: Graph Traverse Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
       - [***IGraphTraversable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphTraversable.cs)
       <br> Graphs inheriting from this interface has access to the [***Graph Algorithms: Graph Traverse Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
