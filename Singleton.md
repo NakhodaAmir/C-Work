@@ -1,5 +1,14 @@
 ```cs
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
+public sealed class Singleton
+{
+  private Singleton() { }
+  public Singleton Instance => Lazy.instance;
+  
+  private class Lazy
+  {
+    static Lazy() { }
+    
+    internal static readonly Singleton instance = new Singleton();
+  }
+}
 ```
