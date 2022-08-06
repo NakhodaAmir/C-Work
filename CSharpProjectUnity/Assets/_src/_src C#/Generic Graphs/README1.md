@@ -28,3 +28,76 @@
     <br>The generic abstract class used to create the [***Graph Traverse Algorithms***](C-Work/tree/main/CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
       - [***Breadth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/BreadthFirstSearch.cs)
       - [***Depth First Search***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
+```cs
+  using MirJan.GenericGraphs;
+  
+  public class ExampleGraph : IGraphSearchable<ExampleGraph.Node, Vector2>
+  {
+    Node SourceNode;
+    Node TargetNode;
+    
+    public void ExampleMethod()
+    {
+        AStarSearch aStarSearch = new AStarSearch<Node, Vector2>(this);
+        
+        aStarSearch.Initialize(SourceNode, TargetNode);
+        
+        while (aStarSearch.IsRunning) aStarSearch.Step();
+        
+        
+        DijkstraSearch dijkstraSearch = new DijkstraSearch<Node, Vector2>(this);
+        
+        dijkstraSearch.Initialize(SourceNode, TargetNode);
+        
+        while (dijkstraSearch.IsRunning) dijkstraSearch.Step();
+        
+        
+        GreedyBestFirstSearch greedyBestFirstSearch = new GreedyBestFirstSearch<Node, Vector2>(this);
+        
+        greedyBestFirstSearch.Initialize(SourceNode, TargetNode);
+        
+        while (greedyBestFirstSearch.IsRunning) greedyBestFirstSearch.Step();
+        
+        
+        FringeSearch fringeSearch = new FringeSearch<Node, Vector2>(this);
+        
+        fringeSearch.Initialize(SourceNode, TargetNode);
+        
+        while (fringeSearch.IsRunning) fringeSearch.Step();
+        
+        
+        BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch<Node, Vector2>(this);
+        
+        breadthFirstSearch.Initialize(SourceNode);
+        
+        while (breadthFirstSearch.IsRunning) breadthFirstSearch.Step();
+        
+        
+        DepthFirstSearch depthFirstSearch = new DepthFirstSearch<Node, Vector2>(this);
+        
+        depthFirstSearch.Initialize(SourceNode);
+        
+        while (depthFirstSearch.IsRunning) depthFirstSearch.Step();
+    }
+    
+    public List<Node> GetNeighbourNodes(Node node)
+    {
+        throw new NotImplementedException(); 
+    }
+    
+    public float HeuristicCost(Vector2 valueA, Vector2 valueB)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public float NodeTraversalCost(Vector2 valueA, Vector2 valueB)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public class Node : GraphSearchableNode<Vector2>
+    {
+        public Node(Vector2 value) : base(value) { }
+    }
+  }
+  ```
