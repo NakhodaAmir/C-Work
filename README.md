@@ -2,14 +2,14 @@
 ## [C# Specific Code](CSharpProjectUnity/Assets/_src/_src%20C%23)
 - [**Generic Graphs**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs)
   <br>Overview:
-    - Create graph data structures with the Generic Graph Interfaces
+    - Create graph data structures with the [**Generic Graph Interfaces**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces) and the [**Abstract Generic Graph Nodes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes).
     - Available Graph Algorithms:
-      - A* Search
-      - Dijkstra Search
-      - Greedy Best First Search
-      - Fringe Search
-      - Breadth First Search
-      - Depth First Search
+      - [**A\* Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms/AStarSearch.cs)
+      - [**Dijkstra Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms/DijkstraSearch.cs)
+      - [**Greedy Best First Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms/GreedyBestFirstSearch.cs)
+      - [**Fringe Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search/FringeSearch.cs)
+      - [**Breadth First Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/BreadthFirstSearch.cs)
+      - [**Depth First Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal/DepthFirstSearch.cs)
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes)
   - [***Enumeration Class***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Enumeration%20Class)
   - [***Finite State Machine & State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine)
