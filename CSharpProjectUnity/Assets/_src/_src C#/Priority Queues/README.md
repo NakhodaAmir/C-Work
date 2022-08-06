@@ -1,4 +1,3 @@
-# Pairing Heap
 ```cs
   using MirJan.PriorityQueues;
   
