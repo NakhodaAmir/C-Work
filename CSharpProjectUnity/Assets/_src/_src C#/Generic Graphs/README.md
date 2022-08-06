@@ -30,7 +30,8 @@
     <br>The generic abstract class used to create the [***Graph Traverse Algorithms***](Graph%20Traversal).
       - [***Breadth First Search***](Graph%20Traversal/BreadthFirstSearch.cs)
       - [***Depth First Search***](Graph%20Traversal/DepthFirstSearch.cs)
-- ![Image](Resources/Generic%20Graphs%20Overview.PNG)
+- ***Generic Graphs Diagram***
+<br>![Image](/../main/Resources/Generic%20Graphs%20Overview.PNG)
 ```cs
   using MirJan.GenericGraphs;
   
