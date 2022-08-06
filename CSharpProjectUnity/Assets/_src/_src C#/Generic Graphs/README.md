@@ -74,6 +74,7 @@
             
             //aStarSearch has finished
             
+            //The below example is similar with the Depth First Search algorithm
             BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch<ExampleGraph.Node, Vector2>(exampleGraph);
             breadthFirstSearch.Initialize(exampleGraph.SourceNode);
             
