@@ -1,3 +1,9 @@
+| n | Total number of elements in the heap |
+| ------------- | ------------- |
+
+| d | The degree of the heap. Represents the number of children a node, in the heap, has |
+| ------------- | ------------- |
+
 | Operation  | Time Complexity | Description |
 | ------------- | ------------- | ------------ |
 | Count     | <p align='center'>1</p> | Returns the number of elements in the heap |
