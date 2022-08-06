@@ -1,4 +1,4 @@
-- [***Abstract Graph Algorithm***](Generic%20Graphs/Abstract%20Graph%20Algorithm)
+- [***Abstract Graph Algorithm***](Abstract%20Graph%20Algorithm)
       <br>The generic abstract class used to create the ***Graph Algorithms***.
 - [***Abstract Graph Nodes***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes)
 <br>Represents a vertex of the graph data structure. The type of node is relative to the type of graph denoted by its [***Graph Interface***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces).
