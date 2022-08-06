@@ -8,26 +8,6 @@
     - [***State***](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachineState.cs)
 - [**Priority Queues**](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues)
   - [***D-Ary Heap***](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/DAryHeap.cs)
-  ```cs
-  using MirJan.PriorityQueues;
-  
-  public class Example
-  {
-    DaryHeap<Number> dAryHeap = new DaryHeap(10);
-  }
-  
-  public class Number : IDaryHeap<Number>
-  {
-    public int number; 
-    
-    public int HeapIndex {get; set;}
-    
-    public int CompareTo(Number other)
-    {
-        return number.CompareTo(other.number);
-    }
-  }
-  ```
   - [***Pairing Heap***](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/PairingHeap.cs)
   ```cs
   using MirJan.PriorityQueues;
