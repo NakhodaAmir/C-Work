@@ -9,7 +9,7 @@
     - [***Graph Interfaces***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces)
       <br> Interface used to create a graph data structure.
       - [***IGraphSearchable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphSearchable.cs)
-      <br> Graphs inheriting from this interface has access to the [***Graph Algorithms: Graph Search Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search) and [***Graph Traverse Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
+      <br> Graphs inheriting from this interface has access to the [***Graph Search Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search) and [***Graph Traverse Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
       - [***IGraphTraversable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphTraversable.cs)
       <br> Graphs inheriting from this interface has access to the [***Graph Traverse Algorithms***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Traversal).
     - ***Graph Algorithms***
