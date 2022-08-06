@@ -14,6 +14,7 @@
     <br> Graphs inheriting from this interface has access to the [***Graph Traverse Algorithms***](Graph%20Traversal).
 - ***Graph Algorithms***
   - [***Graph Search Algorithms***](Graph%20Search)
+    <br> Algorithms that will search, through the graph data structure, from a specified source node, for a specified target node. The algorithm will be successfull once it has found the target node.
     - [***Abstract Graph Search Algorithm***](Graph%20Search/Abstract%20Graph%20Searcher)
     <br>The generic abstract class used to create the [***Graph Search Algorithms***](Graph%20Search).
       - [***Dynamic Graph Search Algorithms***](Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms)
@@ -24,6 +25,7 @@
         - [***Greedy Best First Search***](Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms/GreedyBestFirstSearch.cs)
       - [***Fringe Search***](Graph%20Search/FringeSearch.cs)
   - [***Graph Traverse Algorithms***](Graph%20Traversal)
+    <br> Algorithms that will traverse the whole graph data structure from a specified source node. The algorithm will be successfull once the whole graph data structure has been traversed.
     - [***Abstract Graph Traverser Algorithm***](Graph%20Traversal/Abstract%20Graph%20Traverser)
     <br>The generic abstract class used to create the [***Graph Traverse Algorithms***](Graph%20Traversal).
       - [***Breadth First Search***](Graph%20Traversal/BreadthFirstSearch.cs)
