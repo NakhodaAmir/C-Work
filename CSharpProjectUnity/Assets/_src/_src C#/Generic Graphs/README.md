@@ -2,7 +2,7 @@
       <br>The generic abstract class used to create the ***Graph Algorithms***.
 - [***Abstract Graph Nodes***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes)
 <br>Represents a vertex of the graph data structure. The type of node is relative to the type of graph denoted by its [***Graph Interface***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces).
-      - [***GraphSearchableNode***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes/GraphSearchableNode.cs)
+ - [***GraphSearchableNode***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes/GraphSearchableNode.cs)
       <br> Present in graphs inheriting the [***IGraphSearchable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphSearchable.cs).
       - [***GraphTraversableNode***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes/GraphTraversableNode.cs)
       <br> Present in graphs inheriting the [***IGraphTraversable***](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces/IGraphTraversable.cs).
