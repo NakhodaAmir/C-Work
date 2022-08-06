@@ -36,52 +36,8 @@
   
   public class ExampleGraph : IGraphSearchable<ExampleGraph.Node, Vector2>
   {
-    Node SourceNode;
-    Node TargetNode;
-    
-    public void ExampleMethod()
-    {
-        AStarSearch aStarSearch = new AStarSearch<Node, Vector2>(this);
-        
-        aStarSearch.Initialize(SourceNode, TargetNode);
-        
-        while (aStarSearch.IsRunning) aStarSearch.Step();
-        
-        
-        DijkstraSearch dijkstraSearch = new DijkstraSearch<Node, Vector2>(this);
-        
-        dijkstraSearch.Initialize(SourceNode, TargetNode);
-        
-        while (dijkstraSearch.IsRunning) dijkstraSearch.Step();
-        
-        
-        GreedyBestFirstSearch greedyBestFirstSearch = new GreedyBestFirstSearch<Node, Vector2>(this);
-        
-        greedyBestFirstSearch.Initialize(SourceNode, TargetNode);
-        
-        while (greedyBestFirstSearch.IsRunning) greedyBestFirstSearch.Step();
-        
-        
-        FringeSearch fringeSearch = new FringeSearch<Node, Vector2>(this);
-        
-        fringeSearch.Initialize(SourceNode, TargetNode);
-        
-        while (fringeSearch.IsRunning) fringeSearch.Step();
-        
-        
-        BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch<Node, Vector2>(this);
-        
-        breadthFirstSearch.Initialize(SourceNode);
-        
-        while (breadthFirstSearch.IsRunning) breadthFirstSearch.Step();
-        
-        
-        DepthFirstSearch depthFirstSearch = new DepthFirstSearch<Node, Vector2>(this);
-        
-        depthFirstSearch.Initialize(SourceNode);
-        
-        while (depthFirstSearch.IsRunning) depthFirstSearch.Step();
-    }
+    public Node SourceNode = new Node(new Vector2(0, 0));
+    public Node TargetNode = new Node(new Vector2(1, 0));
     
     public List<Node> GetNeighbourNodes(Node node)
     {
@@ -102,5 +58,28 @@
     {
         public Node(Vector2 value) : base(value) { }
     }
+  }
+  
+  public class OtherExampleClass
+  {
+      ExampleGraph exampleGraph = new ExampleGraph();
+      
+      public void FindPath()
+      {
+            //The below example is similar with the Dijkstra Search, Greedy Best First Search and Fringe Search algorithms
+            AStarSearch aStarSearch = new AStarSearch<ExampleGraph.Node, Vector2>(exampleGraph);
+            aStarSearch.Initialize(exampleGraph.SourceNode, exampleGraph.TargetNode);
+            
+            while(aStarSearch.IsRunning) aStarSearch.Step();
+            
+            //aStarSearch has finished
+            
+            BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch<ExampleGraph.Node, Vector2>(exampleGraph);
+            breadthFirstSearch.Initialize(exampleGraph.SourceNode);
+            
+            while(breadthFirstSearch.IsRunning) breadthFirstSearch.Step();
+            
+            //breadthFirstSearch has finished
+      }
   }
   ```
