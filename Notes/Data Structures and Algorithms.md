@@ -10,7 +10,7 @@ Asymptotic notations
 - Little-omega (**ω**) notation
 - Big-Theta (**Θ**) notation (Average Case)
 
-## <a name="onotation">O-notation</a>
+## O-notation
 Big-O notation represents the tight upper bound of the running time of an algorithm, even though, as written, it can also be a loose upper-bound. Big-O measures the longest amount of time an algorithm can possibly take to complete. Thus, it gives the worst-case complexity of an algorithm.
 ### o-notation
 To make Big-O's role as a tight upper-bound more clear, Little-o notationm is used to describe an upper-bound that cannot be asymptotically tight. Thus, Little-o means loose upper bound of the running time of an algorithm. Little-o is a rough estimate of the maximum order of growth whereas Big-Ο may be the actual order of growth. 
