@@ -11,3 +11,4 @@ public class Test : MonoBehaviour
     public SingleLayerMask singleLayerMask;
 }
 ```
+![GIF](/../main/Resources/SingleLayerMask.gif)
