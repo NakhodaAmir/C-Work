@@ -4,7 +4,7 @@
 - [**Path Finder Manager**](PathFinderManager.cs)
 <br>Base class of all [**Graph**](Graphs) classes.
 - [**Path Finding Agent**](PathFindingAgent.cs)
-<br>Inherit this class to create a [**Path Finding Agent**](). Request a path while specifying a target position. Once a path is found, a list of Vector3 waypoints will be returned.
+<br>Inherit this class to create a [**Path Finding Agent**](PathFindingAgent.cs). Request a path while specifying a target position. Once a path is found, a list of Vector3 waypoints will be returned.
 - [**Path Request**](PathRequest.cs)
 <br> Struct that contains the:
   - Start Position; to define where the [**Path Finder**](PathFinder.cs) will start.
