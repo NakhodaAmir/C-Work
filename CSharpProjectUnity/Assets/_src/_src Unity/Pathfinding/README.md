@@ -11,9 +11,9 @@
   - Target Position; to define what the [**Path Finder**](PathFinder.cs) will search for.
   - Call Back Function; to define where to return the path found by the [**Path Finder**](PathFinder.cs).
 - [**Path Request Manager**](PathRequestManager.cs)
-<br>Manages all requests that have been sent by the [**Path Finding Agent**]()(s). Allocates these requests into seperate [**Path Finding Thread**](PathfindingThread.cs) equally. Number of [**Path Finding Thread**](PathfindingThread.cs)s that will be used is defined by the user from the [**Path Finder Manager**](PathFinderManager.cs).
+<br>Manages all requests that have been sent by the [**Path Finding Agent**](PathFindingAgent.cs)(s). Allocates these requests into seperate [**Path Finding Thread**](PathfindingThread.cs) equally. Number of [**Path Finding Thread**](PathfindingThread.cs)s that will be used is defined by the user from the [**Path Finder Manager**](PathFinderManager.cs).
 - [**Path Finding Thread**](PathfindingThread.cs)
-<br>A thread that uses the [**Path Finder**](PathFinder.cs). [**Path Request**](PathRequest.cs)s, sent by the [**Path Request Manager**](PathRequestManager.cs), requested by the [**Path Finding Agent**]()(s) will be used as input data for the [**Path Finder**](PathFinder.cs).
+<br>A thread that uses the [**Path Finder**](PathFinder.cs). [**Path Request**](PathRequest.cs)s, sent by the [**Path Request Manager**](PathRequestManager.cs), requested by the [**Path Finding Agent**](PathFindingAgent.cs)(s) will be used as input data for the [**Path Finder**](PathFinder.cs).
 - [**Graphs**](Graphs)
 <br>Graphs that can be used for path finding.
   - [**Grid Graph**](Graphs/GridGraph.cs)
