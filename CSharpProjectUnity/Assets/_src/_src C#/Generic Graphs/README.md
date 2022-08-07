@@ -3,15 +3,15 @@
       <br>The generic abstract class used to create the [**Graph Search Algorithms**](Graph%20Search) and [**Graph Traverse Algorithms**](Graph%20Traversal).
 - [**Abstract Graph Nodes**](Abstract%20Graph%20Nodes)
 <br>Represents a vertex of the graph data structure. The type of node is relative to the type of graph denoted by its [**Graph Interface**](Graph%20Interfaces).
-  - [**GraphSearchableNode**](Abstract%20Graph%20Nodes/GraphSearchableNode.cs)
-      <br> Present in graphs inheriting the [**IGraphSearchable**](Graph%20Interfaces/IGraphSearchable.cs).
-  - [**GraphTraversableNode**](Abstract%20Graph%20Nodes/GraphTraversableNode.cs)
-    <br> Present in graphs inheriting the [**IGraphTraversable**](Graph%20Interfaces/IGraphTraversable.cs).
+  - [**Graph Searchable Node**](Abstract%20Graph%20Nodes/GraphSearchableNode.cs)
+      <br> Present in graphs inheriting the [**IGraph Searchable**](Graph%20Interfaces/IGraphSearchable.cs).
+  - [**Graph Traversable Node**](Abstract%20Graph%20Nodes/GraphTraversableNode.cs)
+    <br> Present in graphs inheriting the [**IGraph Traversable**](Graph%20Interfaces/IGraphTraversable.cs).
 - [**Graph Interfaces**](Graph%20Interfaces)
 <br> Interface used to create a graph data structure.
-  - [**IGraphSearchable**](Graph%20Interfaces/IGraphSearchable.cs)
+  - [**IGraph Searchable**](Graph%20Interfaces/IGraphSearchable.cs)
     <br> Graphs inheriting from this interface has access to the [**Graph Search Algorithms**](Graph%20Search) and [**Graph Traverse Algorithms**](Graph%20Traversal).
-  - [**IGraphTraversable**](Graph%20Interfaces/IGraphTraversable.cs)
+  - [**IGraph Traversable**](Graph%20Interfaces/IGraphTraversable.cs)
     <br> Graphs inheriting from this interface has access to the [**Graph Traverse Algorithms**](Graph%20Traversal).
 - [**Graph Search Algorithms**](Graph%20Search)
     <br> Algorithms that will search, through the graph data structure, from a specified source node, for a specified target node. The algorithm will be successful once it has found the target node.
