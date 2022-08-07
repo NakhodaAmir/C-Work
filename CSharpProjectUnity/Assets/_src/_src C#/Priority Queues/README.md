@@ -1,3 +1,5 @@
+# Time Complexity
+
 | n | Total number of elements in the heap |
 | ------------- | ------------- |
 
