@@ -24,4 +24,4 @@
 # [**Notes**](Notes)
 ## [**Data Structures & Algorithms**](Notes/Data%20Structures%20and%20Algorithms.md)
 ## [HowTos](Notes/HowTos.md)
-- [Thread Safe Fully Lazy Singleton]()
+- [Thread Safe Fully Lazy Singleton](Notes/HowTos.md#Thread Safe Fully Lazy Singleton)
