@@ -15,6 +15,7 @@
 <a name="amortizedtime">1</a>: Amortized Time
 <br><a name="lowerupperbound">2</a>: Lower bound of Ω(loglog n). Upper bound O(2<sup>2&radic;loglog n</sup>)
 
+# Example Code
 ```cs
   using MirJan.PriorityQueues;
   
