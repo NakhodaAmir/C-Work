@@ -1,7 +1,6 @@
 # [Source Code](CSharpProjectUnity/Assets/_src)
 ## [C# Specific Code](CSharpProjectUnity/Assets/_src/_src%20C%23)
 - [**Generic Graphs**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs)
-  <br>Overview:
     - Create graph data structures with the [**Generic Graph Interfaces**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Interfaces) and the [**Abstract Generic Graph Nodes**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Abstract%20Graph%20Nodes).
     - Available Graph Algorithms:
       - [**A\* Search**](CSharpProjectUnity/Assets/_src/_src%20C%23/Generic%20Graphs/Graph%20Search/Dynamic%20Graph%20Searcher%20Algorithms/AStarSearch.cs)
@@ -20,6 +19,11 @@
   - [***Pairing Heap***](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/Pairing%20Heap)
 ## [Unity Code](CSharpProjectUnity/Assets/_src/_src%20Unity)
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes)
+  - [**Single Layer Mask**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Single%20Layer%20Mask)
+  - [Singletons](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons)
+    <br>Available Singletons:
+    - [Persistent Singletons](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/PersistentSingleton.cs)
+    - [Singletons](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/Singleton.cs)
 - [**Path Finding**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding)
 # [**Notes**](Notes)
 ## [**Data Structures & Algorithms**](Notes/Data%20Structures%20and%20Algorithms.md)
