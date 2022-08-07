@@ -1,8 +1,6 @@
 | n | Total number of elements in the heap |
 | ------------- | ------------- |
 
-
-
 | Operation  | Time Complexity | Description |
 | ------------- | ------------- | ------------ |
 | Count     | <p align='center'>**Θ**(1)</p> | Returns the number of elements in the heap |
