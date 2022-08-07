@@ -1,5 +1,5 @@
 - [**Base Persistent Singleton**](BasePersistentSingleton.cs)
-<br>The base class of the [**Persistent Singleton**](PersistentSingleton.cs) class.
+<br>The base class of the [**Persistent Singleton**](PersistentSingleton.cs) class. Inherits ScriptableObject.
 - [**Persistent Singleton**](PersistentSingleton.cs)
 <br>Inherit this class to create a persistent singleton scriptable objects. Persistent singletons persists between scenes and will not be destroyed when loading to a new scene. These singletons are thread safe and fully lazy.
 - [**Persistent Singleton Behaviour**](PersistentSingletonBehaviour.cs)
