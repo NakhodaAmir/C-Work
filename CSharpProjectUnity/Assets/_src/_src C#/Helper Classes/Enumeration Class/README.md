@@ -1,3 +1,5 @@
+ # Enumeration Class
+ 
  # Example Code
  ```cs
   using MirJan.Helpers;
