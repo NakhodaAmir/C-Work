@@ -1,6 +1,6 @@
 # Path Finding
 - [**Path Finder**](PathFinder.cs)
-<br>Path finding class that make use of the graph search algorithm, fringe search. Returns a path, a list of Vector3 waypoints, to the [**Path Finding Agent**](PathFindingAgent.cs).
+<br>Path finding class that make use of the graph search algorithm, Fringe Search. Returns a path, a list of Vector3 waypoints, to the [**Path Finding Agent**](PathFindingAgent.cs).
 - [**Path Finder Manager**](PathFinderManager.cs)
 <br>Base class of all [**Graph**](Graphs) classes.
 - [**Path Finding Agent**](PathFindingAgent.cs)
