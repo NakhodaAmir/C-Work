@@ -1,4 +1,5 @@
-# Time Complexity
+# Priority Queues
+## Time Complexity
 
 | n | Total number of elements in the heap |
 | ------------- | ------------- |
