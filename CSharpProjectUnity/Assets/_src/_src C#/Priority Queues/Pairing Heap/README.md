@@ -1,3 +1,5 @@
+# Pairing Heap
+
 | n | Total number of elements in the heap |
 | ------------- | ------------- |
 
