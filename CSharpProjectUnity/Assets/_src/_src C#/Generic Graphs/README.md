@@ -31,6 +31,7 @@
       - [**Depth First Search**](Graph%20Traversal/DepthFirstSearch.cs)
 - **Generic Graphs Diagram**
 <br>![Image](/../main/Resources/Generic%20Graphs%20Overview.PNG)
+# Example Code
 ```cs
   using MirJan.GenericGraphs;
   
