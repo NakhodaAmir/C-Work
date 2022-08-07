@@ -24,7 +24,7 @@
 # [**Notes**](Notes)
 ## [**Data Structures & Algorithms**](Notes/Data%20Structures%20and%20Algorithms.md)
 - [Asymptotic Analysis](Notes/Data%20Structures%20and%20Algorithms.md#asymptotic-analysis)
-  - [Big-O Notation](Notes/Data%20Structures%20and%20Algorithms.md#onotation)
+  - [Big-O Notation](Notes/Data%20Structures%20and%20Algorithms.md#o-notation)
   - [Little-o Notation](Notes/Data%20Structures%20and%20Algorithms.md#o-notation-1)
   - [Big-Omega Notation](Notes/Data%20Structures%20and%20Algorithms.md#ω-notation)
   - [Little-omega Notation](Notes/Data%20Structures%20and%20Algorithms.md#ω-notation-1)
