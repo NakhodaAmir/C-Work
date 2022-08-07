@@ -21,8 +21,12 @@
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes)
   - [**Single Layer Mask**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Single%20Layer%20Mask)
   - [Singletons](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons)
-    <br>Create Singletons with the [Persistent Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/PersistentSingleton.cs) and the [Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/Singleton.cs) class.
+    - Create Singletons with the [Persistent Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/PersistentSingleton.cs) and the [Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/Singleton.cs) class.
 - [**Path Finding**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding)
+    - Create path finding agents with the [**Path Finding Agent**]() class.
+    - Multithreaded Path Finding, using Fringe Search, for 3D environments.
+    - Available Path Finding Graphs:
+        - Grid Graph
 # [**Notes**](Notes)
 ## [**Data Structures & Algorithms**](Notes/Data%20Structures%20and%20Algorithms.md)
 - [**Asymptotic Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#asymptotic-analysis)
