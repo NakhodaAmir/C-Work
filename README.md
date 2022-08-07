@@ -21,7 +21,7 @@
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes)
   - [**Single Layer Mask**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Single%20Layer%20Mask)
   - [Singletons](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons)
-    <br>Create Singletons with the [Persistent Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/PersistentSingleton.cs) and the [Singletons](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/Singleton.cs) class.
+    <br>Create Singletons with the [Persistent Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/PersistentSingleton.cs) and the [Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/Singleton.cs) class.
 - [**Path Finding**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding)
 # [**Notes**](Notes)
 ## [**Data Structures & Algorithms**](Notes/Data%20Structures%20and%20Algorithms.md)
