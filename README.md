@@ -24,3 +24,4 @@
 # [**Notes**]()
 ## [**Algorithms & Data Structures**]()
 ## [HowTos]()
+- [Thread Safe Fully Lazy Singleton]()
