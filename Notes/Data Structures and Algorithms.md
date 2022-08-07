@@ -32,4 +32,12 @@ http://www2.hawaii.edu/~nodari/teaching/s16/notes/notes01.pdf
 https://fdocuments.net/document/binary-heap-d-ary-heap-binomial-heap-amortized-analysis-amortized-complexity.html?page=19
 
 # Algorithm Analysis
-
+## O-notation Algorithm Analysis
+![<Image](/../main/Resources/Big-o%20Notation%20Algorithm%20Analysis.png)
+## Common Asymptotic Notations
+|  Asymptotic Notations | Time Complexity |
+| ---- | ---- |
+| Constant | O(1) |
+| Logarithmic | O(log n) |
+| Linear | O(n) |
+| Quadratic | O(n<sup>2</sup>) |
