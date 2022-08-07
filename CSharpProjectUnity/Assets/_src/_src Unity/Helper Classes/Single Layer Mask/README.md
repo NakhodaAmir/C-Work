@@ -1,1 +1,2 @@
-Similar to a LayerMask in Unity, SingleLayerMask only allows the user to select one LayerMask.
+- [Single Layer Mask](SingleLayerMask.cs)
+<br>Similar to a LayerMask in Unity, the [Single Layer Mask](SingleLayerMask.cs) only allows the user to select one LayerMask.
