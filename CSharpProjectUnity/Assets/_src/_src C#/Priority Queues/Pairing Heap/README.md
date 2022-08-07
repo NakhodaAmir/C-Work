@@ -9,7 +9,7 @@
 | Insert  | <p align='center'>**Θ**(1)</p>  | Inserts and element into the heap |
 | Extract Min  | <p align='center'>**O**(n)/**O**(log n)<sup>[1](#amortizedtime)</sup> | Removes and returns the smallest element in a Min-Heap or the largest element in a Max-Heap |
 | Contains     | <p align='center'>**Θ**(1)</p> | Returns whether the heap contains an element or not |
-| Update (Decrease Key for Min-Heap/ Increase Key for Max-Heap) | <p align='center'>**O**(1)/**o**(log n)<sup>[1](#amortizedtime) [2](#lowerupperbound)</sup></p> | Updates an element in the heap |
+| Update (Decrease Key for Min-Heap/ Increase Key for Max-Heap) | <p align='center'>**o**(log n)<sup>[1](#amortizedtime) [2](#lowerupperbound)</sup></p> | Updates an element in the heap |
 | Meld | <p align='center'>**Θ**(1)</p> | Melds two heaps into one heap |
 
 <a name="amortizedtime">1</a>: Amortized Time
