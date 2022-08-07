@@ -1,4 +1,4 @@
-# Overview
+# Generic Graphs
 - [**Abstract Graph Algorithm**](Abstract%20Graph%20Algorithm)
       <br>The generic abstract class used to create the [**Graph Search Algorithms**](Graph%20Search) and [**Graph Traverse Algorithms**](Graph%20Traversal).
 - [**Abstract Graph Nodes**](Abstract%20Graph%20Nodes)
