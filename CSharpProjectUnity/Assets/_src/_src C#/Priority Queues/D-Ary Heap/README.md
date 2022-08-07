@@ -11,6 +11,7 @@
 | Contains     | <p align='center'>**Θ**(1)</p> | Returns whether the heap contains an element or not |
 | Update (Decrease Key for Min-Heap/ Increase Key for Max-Heap) | <p align='center'>**Θ**(log<sub>d</sub> n)</p> | Updates an element in the heap |
 
+# Example Code
 ```cs
   using MirJan.PriorityQueues;
   
