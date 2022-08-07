@@ -3,9 +3,6 @@
 | n | Total number of elements in the heap |
 | ------------- | ------------- |
 
-| d | The degree of the heap. Represents the number of children a node, in the heap, has |
-| ------------- | ------------- |
-
 | Operation  | Paring Heap | D-Ary Heap |
 | ------------- | ------------- | ------------ |
 | Count     | <p align='center'>**Θ**(1)</p> | <p align='center'>**Θ**(1)</p> |
