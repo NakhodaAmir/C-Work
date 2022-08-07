@@ -50,8 +50,8 @@ https://fdocuments.net/document/binary-heap-d-ary-heap-binomial-heap-amortized-a
 # Algorithm Analysis
 ## O-notation Algorithm Analysis
 ![<Image](/../main/Resources/Big-o%20Notation%20Algorithm%20Analysis.png)
-## Common Asymptotic Notations
-|  Asymptotic Notations | Time Complexity |
+
+|  **O** notation | Time Complexity |
 | ---- | ---- |
 | Constant | O(1) |
 | Logarithmic | O(log n) |
