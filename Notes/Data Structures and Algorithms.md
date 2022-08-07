@@ -3,17 +3,24 @@ Asymptotic analysis of an algorithm refers to defining the mathematical boundati
 
 Asymptotic analysis is input bound i.e., if there's no input to the algorithm, it is concluded to work in a constant time. Other than the "input" all other factors are considered constant.
 
-There are mainly three asymptotic notations
+Asymptotic notations
 - Big-O (**O**)  notation (Worst Case)
-- Omega (**Ω**) notation (Best Case)
-- Theta (**Θ**) notation (Average Case)
+- Big-Omega (**Ω**) notation (Best Case)
+- Big-Theta (**Θ**) notation (Average Case)
+- Little-o (**o**) notation
+- Little-omega (**ω**) notation
 
 ## O-notation
-Big-O notation represents the upper bound of the running time of an algorithm. It measures the longest amount of time an algorithm can possibly take to complete. Thus, it gives the worst-case complexity of an algorithm.
+Big-O notation represents the tight upper bound of the running time of an algorithm, even though, as written, it can also be a loose upper-bound. Big-O measures the longest amount of time an algorithm can possibly take to complete. Thus, it gives the worst-case complexity of an algorithm.
+### o-notation
+To make Big-O's role as a tight upper-bound more clear, Little-o notationm is used to describe an upper-bound that cannot be asymptotically tight. Thus, Little-o means loose upper bound of the running time of an algorithm. Little-o is a rough estimate of the maximum order of growth whereas Big-Ο may be the actual order of growth. 
 ## Ω-notation
-Omega notation represents the lower bound of the running time of an algorithm. It measures the best amount of time an algorithm can possibly take to complete. Thus, it provides the best case complexity of an algorithm.
+Big Omega notation represents the tight lower bound of the running time of an algorithm. It measures the best amount of time an algorithm can possibly take to complete. Thus, it provides the best case complexity of an algorithm.
+### ω-notation
+Big-Omega is the tight lower bound notation and Little-omega describes the loose lower bound. Little-omega is a rough estimate of the order of growth whereas Big-Omega may represent the exact order of growth. We use little-omega to denote a lower bound that is not asymptotically tight.
 ## Θ-notation
-Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm.
+Big Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm.
+
 ## References
 https://www.programiz.com/dsa/asymptotic-notations#:~:text=Theta%20Notation%20(%CE%98%2Dnotation),case%20complexity%20of%20an%20algorithm.
 https://www.tutorialspoint.com/data_structures_algorithms/asymptotic_analysis.htm#:~:text=Asymptotic%20analysis%20refers%20to%20computing,as%20g(n2).
