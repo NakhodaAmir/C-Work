@@ -11,7 +11,7 @@
 | Insert  | <p align='center'>**Θ**(1)</p>  | <p align='center'>**Θ**(log<sub>d</sub> n)</p> |
 | Extract Min  | <p align='center'>**O**(n)<sup>[0](#actualtime)</sup>/**O**(log n)<sup>[1](#amortizedtime)</sup> | <p align='center'>**Θ**(d log<sub>d)</sub> n</p> |
 | Contains     | <p align='center'>**Θ**(1)</p> | <p align='center'>**Θ**(1)</p> |
-| Update (Decrease Key for Min-Heap/ Increase Key for Max-Heap) | <p align='center'>**O**(1)<sup>[0](#actualtime)</sup>**o**(log n)<sup>[1](#amortizedtime) [2](#lowerupperbound)</sup></p> | <p align='center'>**Θ**(log<sub>d</sub> n)</p> |
+| Update (Decrease Key for Min-Heap/ Increase Key for Max-Heap) | <p align='center'>**O**(1)<sup>[0](#actualtime)/</sup>**o**(log n)<sup>[1](#amortizedtime) [2](#lowerupperbound)</sup></p> | <p align='center'>**Θ**(log<sub>d</sub> n)</p> |
 | Meld | <p align='center'>**Θ**(1)</p> | Nil |
 
 <a name="actualtime">0</a>: Actual Time
