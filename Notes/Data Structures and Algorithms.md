@@ -26,8 +26,8 @@ $Ω$ is the tight lower bound notation and $ω$ describes the loose lower bound.
 
 ![Image](/../main/Resources/Analysis-of-Algorithms-little-o-omega.png)
 
-### Θ-notation
-Big Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm.
+### $Θ$-notation
+$Θ$ notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm.
 
 ### References
 https://www.programiz.com/dsa/asymptotic-notations#:~:text=Theta%20Notation%20(%CE%98%2Dnotation),case%20complexity%20of%20an%20algorithm.
