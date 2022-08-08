@@ -14,11 +14,15 @@
   - [**Finite State Machine & State**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine)
     - [**Finite State Machine**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachine.cs)
     - [**State**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Finite%20State%20Machine/FiniteStateMachineState.cs)
+  - [**Static Math Class**](CSharpProjectUnity/Assets/_src/_src%20C%23/Helper%20Classes/Math%20Class)
+  <br>C# specific static class for additional math methods.
 - [**Priority Queues**](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues)
   - [**D-Ary Heap**](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/D-Ary%20Heap)
   - [**Pairing Heap**](CSharpProjectUnity/Assets/_src/_src%20C%23/Priority%20Queues/Pairing%20Heap)
 ## [Unity Code](CSharpProjectUnity/Assets/_src/_src%20Unity)
 - [**Helper Classes**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes)
+  - [**Static Math Class**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Math%20Class)
+  <br>Unity specific static class for additional math methods.
   - [**Single Layer Mask**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Single%20Layer%20Mask)
   - [**Singletons**](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons)
     - Create Singletons with the [Persistent Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/PersistentSingleton.cs) and the [Singleton](CSharpProjectUnity/Assets/_src/_src%20Unity/Helper%20Classes/Singletons/Singleton.cs) class.
