@@ -1,3 +1,8 @@
+| Constants | Value |
+| ------- | ------------ |
+| Sqrt2 | $\sqrt2$ |
+| Sqrt3 | $\sqrt3$ |
+
 | Methods | Descriptions |
 | ------- | ------------ |
 | int Max(int x, int y, int z)<br>float Max(float x, float y, float z) | Returns the biggest value from the 3 inputted values |
