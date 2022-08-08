@@ -116,3 +116,14 @@ public float Distance(Vector2 p, Vector2 q)
   return  Math.Sqrt(2) * Math.Min(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y)) + Math.Abs(Math.Abs(p.x - q.x) - Math.Abs(p.y - q.y));
 }
 ```
+### Sexvigintile Distance
+Sexvigintile distance, which builds upon the octile distance, is the distance between two points in 3 dimensional space.
+
+Given two points, ***p*** and ***q***, which are distance x∆, y∆, and z∆ apart in each of the three dimensions respectively let,
+```math
+dmax = max(x∆, y∆, z∆), dmin = min(x∆, y∆, z∆), dmid = {x∆, y∆, z∆} \ {dmax, dmin}
+```
+Then the distance between these points, ***d***, is given by:
+```math
+d(p, q) = (\sqrt{3} - \sqrt{2}) * dmin + (\sqrt{2} - 1) * dmid + dmax
+```
