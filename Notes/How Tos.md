@@ -1,4 +1,5 @@
-# Thread Safe Fully Lazy Singleton
+# How Tos
+## Thread Safe Fully Lazy Singleton
 ```cs
 public sealed class Singleton
 {
