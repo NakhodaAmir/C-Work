@@ -38,5 +38,5 @@
 - [**Amortized Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#amortized-analysis)
 - [**Algorithm Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#algorithm-analysis)
 ## [**Math Formulas**]()
-## [**HowTos**](Notes/HowTos.md)
+## [**How Tos**](Notes/How%20Tos.md)
 - [**Thread Safe Fully Lazy Singleton**](Notes/HowTos.md#ThreadSafeFullyLazySingleton)
