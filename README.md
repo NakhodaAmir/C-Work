@@ -38,5 +38,17 @@
 - [**Amortized Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#amortized-analysis)
 - [**Algorithm Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#algorithm-analysis)
 ## [**Math Formulas**](Notes/Math%20Formulas.md)
+    - [**Physical Distance**](Notes/Math%20Formulas.md#physical-distances)
+    <br> Formulas to calculate the physical distance between two points in euclidean space.
+    - [**Euclidean Distance**](Notes/Math%20Formulas.md#euclidean-distance)
+    <br>1 - 3 Dimensions
+    - [**Manhattan Distance**](Notes/Math%20Formulas.md#manhattan-distance)
+    <br>2 - 3 Dimensions
+    - [**Chebyshev Distance**](Notes/Math%20Formulas.md#chebyshev-distance)
+    <br>2 - 3 Dimensions
+    - [**Octile Distance**](Notes/Math%20Formulas.md#octile-distance)
+    <br>2 Dimensions
+    - [**Sexvigintile Distance**](Notes/Math%20Formulas.md#sexvigintile-distance)
+    <br>3 Dimensions
 ## [**How Tos**](Notes/How%20Tos.md)
 - [**Thread Safe Fully Lazy Singleton**](Notes/How%20Tos.md#ThreadSafeFullyLazySingleton)
