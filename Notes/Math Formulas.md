@@ -133,5 +133,5 @@ Then the distance between these points, ***d***, is given by:
 ```math
 d(p, q) = (\sqrt{3} - \sqrt{2}) * dmin + (\sqrt{2} - 1) * dmid + dmax
 ```
-### References
+#### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
