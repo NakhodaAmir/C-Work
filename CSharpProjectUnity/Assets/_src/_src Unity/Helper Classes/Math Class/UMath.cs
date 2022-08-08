@@ -30,16 +30,7 @@ namespace MirJan
 
                     CMath.Sort3(dX, dY, dZ, out float dMin, out float dMid, out float dMax);
 
-                    return (float)(Math.Sqrt(3) - Math.Sqrt(2)) * dMin + ((float)Math.Sqrt(2) - 1) * dMid + dMax;
-                }
-
-                public static float ScaledSexvigintileDistance(Vector3 nodeA, Vector3 nodeB)
-                {
-                    DeltaDistance3D(nodeA, nodeB, out float dX, out float dY, out float dZ);
-
-                    CMath.Sort3(dX, dY, dZ, out float dMin, out float dMid, out float dMax);
-
-                    return 3 * dMin + 4 * dMid + dMax;
+                    return (float)(CMath.Sqrt3 - CMath.Sqrt2) * dMin + ((float)CMath.Sqrt2 - 1) * dMid + dMax;
                 }
 
                 public static float ChebyshevDistance3D(Vector3 nodeA, Vector3 nodeB)
@@ -74,18 +65,11 @@ namespace MirJan
                     return dX + dY;
                 }
 
-                public static float OctileDistance2D(Vector2 nodeA, Vector2 nodeB)
+                public static float OctileDistance(Vector2 nodeA, Vector2 nodeB)
                 {
                     DeltaDistance2D(nodeA, nodeB, out float dX, out float dY);
 
-                    return Math.Max(dX, dY) + ((float)Math.Sqrt(2) - 1) * Math.Min(dX, dY);
-                }
-
-                public static float ScaledOctileDistance(Vector2 nodeA, Vector2 nodeB)
-                {
-                    DeltaDistance2D(nodeA, nodeB, out float dX, out float dY);
-
-                    return 10 * Math.Max(dX, dY) + 4 * Math.Min(dX, dY);
+                    return Math.Max(dX, dY) + ((float)CMath.Sqrt2 - 1) * Math.Min(dX, dY);
                 }
 
                 public static float ChebyshevDistance2D(Vector2 nodeA, Vector2 nodeB)

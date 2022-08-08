@@ -191,7 +191,7 @@ namespace MirJan
                         }
                         else if (heuristicType == HeuristicType.OCTILE_DISTANCE)
                         {
-                            return UMath.ScaledOctileDistance(valueA, valueB);
+                            return UMath.OctileDistance(valueA, valueB);
                         }
                         else//if(heuristicType == HeuristicType.CHEBYSHEV_DISTANCE)
                         {
