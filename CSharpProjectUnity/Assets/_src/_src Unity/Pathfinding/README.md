@@ -24,3 +24,5 @@
 # Graphs
 ## Square Grid Graphs
 The square grid graph is a regular graph where each node of the graph is a square. This is a 2 dimensional graph.
+![Image2](/../main/Resources/SquareGridGraph2.PNG)
+![Image1](/../main/Resources/SquareGridGraph1.PNG)
