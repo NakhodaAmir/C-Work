@@ -121,7 +121,13 @@ Sexvigintile distance, which builds upon the octile distance, is the distance be
 
 Given two points, ***p*** and ***q***, which are distance x∆, y∆, and z∆ apart in each of the three dimensions respectively let,
 ```math
-dmax = max(x∆, y∆, z∆), dmin = min(x∆, y∆, z∆), dmid = {x∆, y∆, z∆} \ {dmax, dmin}
+dmax = max(x∆, y∆, z∆)
+```
+```math
+dmin = min(x∆, y∆, z∆)
+```
+```math
+dmid = \lbrace x∆, y∆, z∆ \rbrace - \lbrace dmax, dmin \rbrace
 ```
 Then the distance between these points, ***d***, is given by:
 ```math
