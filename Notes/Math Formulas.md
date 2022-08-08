@@ -102,8 +102,8 @@ public float Distance(Vector3 p, Vector3 q)
 }
 ```
 ### Octile Distance
-Octile distance is the distance between two points where the respective lengths of cardinal and diagonal moves are 1 and $\sqrt{2}$ in 2 dimensions. For three dimension the respective lengths of cardinal and 
-#### 2 Dimenstion
+Octile distance is the distance between two points where the respective lengths of cardinal and ordanal moves are 1 and $\sqrt{2}$ in 2 dimensions.
+
 In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
 ```math
 d(p, q) = \sqrt{2} * min(|p1 - q1|, |p2 - q2|) + ||p1 - q1| - |p2 - q2||
@@ -116,5 +116,3 @@ public float Distance(Vector2 p, Vector2 q)
   return  Math.Sqrt(2) * Math.Min(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y)) + Math.Abs(Math.Abs(p.x - q.x) - Math.Abs(p.y - q.y));
 }
 ```
-#### 3 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
