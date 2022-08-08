@@ -37,6 +37,6 @@
   - [**Big-Theta Notation**](Notes/Data%20Structures%20and%20Algorithms.md#θ-notation)
 - [**Amortized Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#amortized-analysis)
 - [**Algorithm Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#algorithm-analysis)
-## [**Math Formulas**]()
+## [**Math Formulas**](Notes/Math%20Formulas.md)
 ## [**How Tos**](Notes/How%20Tos.md)
 - [**Thread Safe Fully Lazy Singleton**](Notes/How%20Tos.md#ThreadSafeFullyLazySingleton)
