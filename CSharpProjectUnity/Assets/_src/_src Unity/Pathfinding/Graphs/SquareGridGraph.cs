@@ -187,15 +187,15 @@ namespace MirJan
                     {
                         if (heuristicType == HeuristicType.MANHATTAN_DISTANCE)
                         {
-                            return MoreMath.ManhattanDistance2D(valueA, valueB);
+                            return UMath.ManhattanDistance2D(valueA, valueB);
                         }
                         else if (heuristicType == HeuristicType.OCTILE_DISTANCE)
                         {
-                            return MoreMath.ScaledOctileDistance(valueA, valueB);
+                            return UMath.ScaledOctileDistance(valueA, valueB);
                         }
                         else//if(heuristicType == HeuristicType.CHEBYSHEV_DISTANCE)
                         {
-                            return MoreMath.ChebyshevDistance2D(valueA, valueB);
+                            return UMath.ChebyshevDistance2D(valueA, valueB);
                         }
                     }
 
