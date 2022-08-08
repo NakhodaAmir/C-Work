@@ -134,6 +134,8 @@ Then the distance between these points, ***d***, is given by:
 d(p, q) = (\sqrt{3} - \sqrt{2}) * dmin + (\sqrt{2} - 1) * dmid + dmax
 ```
 ```cs
+//Pseudocode
+//Points p and q are represented as Vector3 variables where (p1, p2, p3) and (q1, q2, q3) = (p.x, p.y, p.z)
 public float Distance(Vector3 p, Vector3 q)
 {
     float dX = x∆;
