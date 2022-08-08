@@ -140,8 +140,8 @@ public float Distance(Vector3 p, Vector3 q)
     float dY = y∆;
     float dZ = z∆;
      
-    //Function sorts the 3 delta distances and returns dmin, dmid and dmax which are the minimum delta distance, middle delta distance 
-    //and max delta distance respectively
+    //Function sorts the 3 delta distances and returns dmin, dmid and dmax which are the minimum delta distance, 
+    //middle delta distance and max delta distance respectively
     Sort3(dX, dY, dZ, out float dmin, out float dmid, out float dmax);
 
     return (Math.Sqrt(3) - Math.Sqrt(2)) * dmin + (Math.Sqrt(2) - 1) * dmid + dmax;
