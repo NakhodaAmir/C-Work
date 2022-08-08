@@ -17,3 +17,15 @@
 - [**Graphs**](Graphs)
 <br>Graphs that can be used for path finding.
   - [**Grid Graph**](Graphs/GridGraph.cs)
+- [**Graph Utilities**]()
+<br>Helper classes to facilitate the graph classes.
+  - [**Graph Terrain Type**]()
+  <br>Defines a layer in the game scene to have a penalty cost to be added during the path finding calculations.
+  - [**Graph Utilities2D**]()
+  <br>Static class that provides a static method and a static class, for 2D graphs:
+    - Euclidian Distance: Returns the euclidean distance of two points; the length of a line segment between those two points.   
+    - **Grid Utilities**
+    <br>Static class that provides the static methods, for grid graphs:
+      - Manhatten Distance: Returns the distance between two points measured along axes at right angles.
+      - Octile Distance: Returns the distance between two points measured along axes at right and 45&#176; angles, where the ratio of the cost of the right angle to the cost of the 45&#176; angle are 1 : &radic;2.
+      - Chebyshev Distance: Similar to the Octile Distance, but the ratio of the cost of the right angle to the cost of the 45&#176; angle are 1 : 1.
