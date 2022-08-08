@@ -14,7 +14,7 @@ Asymptotic notations
 ### $O$-notation
 $O$ notation represents the tight upper bound of the running time of an algorithm, even though, as written, it can also be a loose upper-bound. $O$ measures the longest amount of time an algorithm can possibly take to complete. Thus, it gives the worst-case complexity of an algorithm.
 #### $o$-notation
-To make $O$'s role as a tight upper-bound more clear, $o$ notationm is used to describe an upper-bound that cannot be asymptotically tight. Thus, $o$ means loose upper bound of the running time of an algorithm. $o$ is a rough estimate of the maximum order of growth whereas $O$ may be the actual order of growth. 
+To make $O$'s role as a tight upper-bound more clear, $o$ notation is used to describe an upper-bound that cannot be asymptotically tight. Thus, $o$ means loose upper bound of the running time of an algorithm. $o$ is a rough estimate of the maximum order of growth whereas $O$ may be the actual order of growth. 
 ### $Ω$-notation
 $Ω$ notation represents the tight lower bound of the running time of an algorithm. It measures the best amount of time an algorithm can possibly take to complete. Thus, it provides the best case complexity of an algorithm.
 #### $ω$-notation
