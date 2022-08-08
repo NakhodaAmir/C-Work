@@ -17,7 +17,7 @@ public float Distance(float p, float q)
 }
 ```
 #### 2 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point **q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
 ```math
 d(p, q) = \sqrt{(q1 - p1)^2 + (q2 - p2)^2}
 ```
@@ -29,6 +29,75 @@ public float Distance(Vector2 p, Vector2 q)
   return  Math.Sqrt(((q.x - p.x) * (q.x - p.x) + (q.y - p.y) * (q.y - p.y)));
 }
 ```
+#### 3 Dimension
+In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
+```math
+d(p, q) = \sqrt{(q1 - p1)^2 + (q2 - p2)^2 + (q3 - p3)^2}
+```
+```cs
+//Pseudocode
+//Points p and q are represented as Vector3 variables where (p1, p2, p3) and (q1, q2, q3) = (p.x, p.y, p.z)
+//and (q.x, q.y, q.z) respectively.
+public float Distance(Vector3 p, Vector3 q)
+{
+  return  Math.Sqrt(((q.x - p.x) * (q.x - p.x) + (q.y - p.y) * (q.y - p.y) + (q.z - p.z) * (q.z - p.z)));
+}
+```
 ### Manhattan Distance
-
+Also known as the taxicab geometry is a form of geometry in which the usual distance function or metric of Euclidean geometry is replaced by a new metric in which the distance between two points is the sum of the absolute differences of their Cartesian coordinates.
+#### 2 Dimension
+In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+```math
+d(p, q) = |p1 - q1| + |p2 - q2|
+```
+```cs
+//Pseudocode
+//Points p and q are represented as Vector2 variables where (p1, p2) and (q1, q2) = (p.x, p.y) and (q.x, q.y) respectively.
+public float Distance(Vector2 p, Vector2 q)
+{
+  return  Math.Abs(p.x - q.x) + Math.Abs(p.y - q.y);
+}
+```
+#### 3 Dimension
+In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
+```math
+d(p, q) = |p1 - q1| + |p2 - q2| + |p3 - q3|
+```
+```cs
+//Pseudocode
+//Points p and q are represented as Vector3 variables where (p1, p2, p3) and (q1, q2, q3) = (p.x, p.y, p.z)
+//and (q.x, q.y, q.z) respectively.
+public float Distance(Vector3 p, Vector3 q)
+{
+  return  Math.Abs(p.x - q.x) + Math.Abs(p.y - q.y) + Math.Abs(p.z - q.z);
+}
+```
 ### Chebyshev Distance
+Chebyshev distance is a distance metric which is the maximum absolute distance in one dimension of two N dimensional points.
+#### 2 Dimenstion
+In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+```math
+d(p, q) = max(|p1 - q1|, |p2 - q2|)
+```
+```cs
+//Pseudocode
+//Points p and q are represented as Vector2 variables where (p1, p2) and (q1, q2) = (p.x, p.y) and (q.x, q.y) respectively.
+public float Distance(Vector2 p, Vector2 q)
+{
+  return  Math.Max(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y));
+}
+```
+#### 3 Dimension
+In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
+```math
+d(p, q) = max(|p1 - q1|, |p2 - q2|, |p3 - q3|)
+```
+```cs
+//Pseudocode
+//Points p and q are represented as Vector3 variables where (p1, p2, p3) and (q1, q2, q3) = (p.x, p.y, p.z)
+//and (q.x, q.y, q.z) respectively.
+public float Distance(Vector3 p, Vector3 q)
+{
+  return  Math.Max(Math.Abs(p.x - q.x) + Math.Abs(p.y - q.y) + Math.Abs(p.z - q.z));
+}
+```
