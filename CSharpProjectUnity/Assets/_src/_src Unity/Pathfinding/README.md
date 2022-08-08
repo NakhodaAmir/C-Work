@@ -21,3 +21,6 @@
 <br>Helper classes to facilitate the graph classes.
   - [**Graph Terrain Type**]()
   <br>Defines a layer in the game scene to have a penalty cost to be added during the path finding calculations.
+# Graphs
+## Square Grid Graphs
+The square grid graph is a regular graph where each node of the graph is a square. This is a 2 dimensional graph.
