@@ -24,6 +24,6 @@
 # Graphs
 ## Square Grid Graphs
 The square grid graph is a regular graph where each node of the graph is a square. This is a 2 dimensional graph.
-***Disclaimer: The final graph shape does not need to be a sqaure. The shape can be rectangular where the width and length of the graph can be any integer larger than 0.***
+<br>***Disclaimer: The final graph shape does not need to be a sqaure. The shape can be rectangular where the width and length of the graph can be any integer larger than 0.***
 ![Image2](/../main/Resources/SquareGridGraph2.PNG)
 ![Image1](/../main/Resources/SquareGridGraph1.PNG)
