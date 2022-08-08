@@ -38,8 +38,8 @@
 - [**Amortized Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#amortized-analysis)
 - [**Algorithm Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#algorithm-analysis)
 ## [**Math Formulas**](Notes/Math%20Formulas.md)
-    - [**Physical Distance**](Notes/Math%20Formulas.md#physical-distances)
-    <br> Formulas to calculate the physical distance between two points in euclidean space.
+- [**Physical Distance**](Notes/Math%20Formulas.md#physical-distances)
+<br> Formulas to calculate the physical distance between two points in euclidean space.
     - [**Euclidean Distance**](Notes/Math%20Formulas.md#euclidean-distance)
     <br>1 - 3 Dimensions
     - [**Manhattan Distance**](Notes/Math%20Formulas.md#manhattan-distance)
