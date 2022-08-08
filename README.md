@@ -26,7 +26,7 @@
     - Create path finding agents with the [**Path Finding Agent**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding/PathFindingAgent.cs) class.
     - Multithreaded Path Finding, using Fringe Search, for 3D environments.
     - Available Path Finding [**Graphs**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding/Graphs):
-        - [**Grid Graph**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding/Graphs/GridGraph.cs)
+        - [**Grid Graph**](CSharpProjectUnity/Assets/_src/_src%20Unity/Pathfinding/Graphs/SquareGridGraph.cs)
 # [**Notes**](Notes)
 ## [**Data Structures & Algorithms**](Notes/Data%20Structures%20and%20Algorithms.md)
 - [**Asymptotic Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#asymptotic-analysis)
