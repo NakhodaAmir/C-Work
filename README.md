@@ -39,4 +39,4 @@
 - [**Algorithm Analysis**](Notes/Data%20Structures%20and%20Algorithms.md#algorithm-analysis)
 ## [**Math Formulas**]()
 ## [**How Tos**](Notes/How%20Tos.md)
-- [**Thread Safe Fully Lazy Singleton**](Notes/HowTos.md#ThreadSafeFullyLazySingleton)
+- [**Thread Safe Fully Lazy Singleton**](Notes/How%20Tos.md#ThreadSafeFullyLazySingleton)
