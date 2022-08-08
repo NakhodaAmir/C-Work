@@ -106,14 +106,14 @@ Octile distance is the distance between two points where the respective lengths 
 
 In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
 ```math
-d(p, q) = \sqrt{2} * min(|p1 - q1|, |p2 - q2|) + ||p1 - q1| - |p2 - q2||
+d(p, q) = max(|p1 - q1|, |p2 - q2|) + (\sqrt{2} - 1) * min(|p1 - q1|, |p2 - q2|)
 ```
 ```cs
 //Pseudocode
 //Points p and q are represented as Vector2 variables where (p1, p2) and (q1, q2) = (p.x, p.y) and (q.x, q.y) respectively.
 public float Distance(Vector2 p, Vector2 q)
 {
-  return  Math.Sqrt(2) * Math.Min(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y)) + Math.Abs(Math.Abs(p.x - q.x) - Math.Abs(p.y - q.y));
+  return Math.Max(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y)) + (Math.Sqrt(2) - 1) * Math.Min(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y));
 }
 ```
 ### Sexvigintile Distance
