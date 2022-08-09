@@ -115,6 +115,17 @@ public float Distance(Vector2 p, Vector2 q)
   return Math.Max(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y)) + (Math.Sqrt(2) - 1) * Math.Min(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y));
 }
 ```
+This formula can further be generalized, as shown below,
+```math
+d(p, q) = max(|p_1 - q_1|, |p_2 - q_2|) + (D - 1) * min(|p_1 - q_1|, |p_2 - q_2|)
+```
+Where when $D = 1$, the formula will regress to the Chebyshev distance.
+<p align="center"><img src="/../main/Resources/ChebyshevDistance.PNG"></p>
+<br>When $D = 2$, the formula will turn into the Manhattan distance.
+<p align="center"><img src="/../main/Resources/ManhattanDistance.PNG"></p>
+<br> Octile distance is when $D = \sqrt2$
+<p align="center"><img src="/../main/Resources/OctileDistance.png"></p>
+
 ### Sexvigintile Distance
 Sexvigintile distance, which builds upon the octile distance, is the distance between two points in 3 dimensional space.
 
