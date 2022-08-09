@@ -5,7 +5,7 @@ Distance is a numerical measurement of how far apart two objects or points are.
 ### Euclidean Distance
 The Euclidean distance between two points in euclidean space is the length of a line segment between the two points.
 #### 1 Dimension
-The distance between any two points on the real line is the absolute value of the numerical difference of their coordinates. Thus if ***p*** and ***q*** are two points on the real line, then the distance between them, ***d***, is given by:
+The distance between any two points on the real line is the absolute value of the numerical difference of their coordinates. Thus if $p$ and $q$ are two points on the real line, then the distance between them, $d$, is given by:
 ```math
 d(p, q) = |p - q|
 ```
@@ -17,7 +17,7 @@ public float Distance(float p, float q)
 }
 ```
 #### 2 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = \sqrt{(q1 - p1)^2 + (q2 - p2)^2}
 ```
@@ -30,7 +30,7 @@ public float Distance(Vector2 p, Vector2 q)
 }
 ```
 #### 3 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1,,q_2, q_3)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = \sqrt{(q1 - p1)^2 + (q2 - p2)^2 + (q3 - p3)^2}
 ```
@@ -46,7 +46,7 @@ public float Distance(Vector3 p, Vector3 q)
 ### Manhattan Distance
 Also known as the taxicab geometry is a form of geometry in which the usual distance function or metric of Euclidean geometry is replaced by a new metric in which the distance between two points is the sum of the absolute differences of their Cartesian coordinates.
 #### 2 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = |p1 - q1| + |p2 - q2|
 ```
@@ -59,7 +59,7 @@ public float Distance(Vector2 p, Vector2 q)
 }
 ```
 #### 3 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1,,q_2, q_3)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = |p1 - q1| + |p2 - q2| + |p3 - q3|
 ```
@@ -75,7 +75,7 @@ public float Distance(Vector3 p, Vector3 q)
 ### Chebyshev Distance
 Chebyshev distance is a distance metric which is the maximum absolute distance in one dimension of two N dimensional points.
 #### 2 Dimenstion
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = max(|p1 - q1|, |p2 - q2|)
 ```
@@ -88,7 +88,7 @@ public float Distance(Vector2 p, Vector2 q)
 }
 ```
 #### 3 Dimension
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>, ***p***<sub>3</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>, ***q***<sub>3</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1,,q_2, q_3)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = max(|p1 - q1|, |p2 - q2|, |p3 - q3|)
 ```
@@ -104,7 +104,7 @@ public float Distance(Vector3 p, Vector3 q)
 ### Octile Distance
 Octile distance is the distance between two points where the respective lengths of cardinal and ordanal moves are 1 and $\sqrt{2}$ in 2 dimensions.
 
-In the Euclidean plane, let point ***p*** have Cartesian coordinates (***p***<sub>1</sub>, ***p***<sub>2</sub>) and let point ***q*** have coordinates (***q***<sub>1</sub>, ***q***<sub>2</sub>). Then the distance between them, ***d***, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
 d(p, q) = max(|p1 - q1|, |p2 - q2|) + (\sqrt{2} - 1) * min(|p1 - q1|, |p2 - q2|)
 ```
@@ -119,7 +119,7 @@ public float Distance(Vector2 p, Vector2 q)
 ### Sexvigintile Distance
 Sexvigintile distance, which builds upon the octile distance, is the distance between two points in 3 dimensional space.
 
-Given two points, ***p*** and ***q***, which are distance x∆, y∆, and z∆ apart in each of the three dimensions respectively let,
+Given two points, $p$ and $q$, which are distance $x∆$, $y∆$, and $z∆$ apart in each of the three dimensions respectively let,
 ```math
 dmax = max(x∆, y∆, z∆)
 ```
@@ -151,4 +151,26 @@ public float Distance(Vector3 p, Vector3 q)
 ```
 #### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
-## SUVAT
+## Kinematics
+### SUVAT Equations
+The SUVAT Equations describe motion in a given direction when acceleration is a constant. The SUVAT equations are:
+```math
+v = u + at
+```
+```math
+s = ut + {{at^2}\over 2}
+```
+```math
+v^2 = u^2 + 2as
+```
+```math
+s = {{v + u}\over 2}t
+```
+```math
+s = vt - {{at^2}\over 2}
+```
+Where $s$ is displacement.
+<br>$u$ is initial velocity.
+<br>$v$ is final velocity.
+<br>$a$ is acceleration.
+<br>$t$ is total time.
