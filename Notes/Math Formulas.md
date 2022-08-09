@@ -172,7 +172,9 @@ https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
 <p align="center">Scale</p>
 <p align="center"><img src="/../main/Resources/3DScale.PNG"></p>
 <p align="center">Relationship on a 3 dimensional graph</p>
-<p align="center"><img src="/../main/Resources/RelationshipOf3DDistances.gif"></p>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![RelationshipOf3DDistances](https://user-images.githubusercontent.com/107838446/183699924-b9443992-30d3-4dc7-b174-14ac8c97b4a8.gif)
+
 <p align="center">Euclidean = 3.00, Manhattan = 5.00, Chebyshev = 2.00, Sexvigintile = 3.15</p>
 
 ## Kinematics
