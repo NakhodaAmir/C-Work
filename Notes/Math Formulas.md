@@ -127,7 +127,7 @@ Where when $D = 1$, the formula will regress to the Chebyshev distance.
 <p align="center"><img src="/../main/Resources/OctileDistance.png"></p>
 
 ### Sexvigintile Distance
-Sexvigintile distance builds upon the octile distance for 3 dimensional space.
+Sexvigintile distance builds upon the Octile distance for 3 dimensional space.
 
 Given two points, $p$ and $q$, which are distance $x∆$, $y∆$, and $z∆$ apart in each of the three dimensions respectively let,
 ```math
