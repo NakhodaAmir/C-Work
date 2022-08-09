@@ -54,5 +54,8 @@
     <br>2 Dimensions
     - [**Sexvigintile Distance**](Notes/Math%20Formulas.md#sexvigintile-distance)
     <br>3 Dimensions
+    - [**Relationship of 2 Dimentional Distances**](Notes/Math%20Formulas.md#relationship-of-2-dimensional-distances)
+- [**Kinematics**](Notes/Math%20Formulas.md#kinematics)
+    - [**SUVAT Equations**](Notes/Math%20Formulas.md#suvat-equations)
 ## [**How Tos**](Notes/How%20Tos.md)
 - [**Thread Safe Fully Lazy Singleton**](Notes/How%20Tos.md#ThreadSafeFullyLazySingleton)
