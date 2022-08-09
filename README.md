@@ -54,7 +54,8 @@
     <br>2 Dimensions
     - [**Sexvigintile Distance**](Notes/Math%20Formulas.md#sexvigintile-distance)
     <br>3 Dimensions
-    - [**Relationship of 2 Dimentional Distances**](Notes/Math%20Formulas.md#relationship-of-2-dimensional-distances)
+    - [**Relationship of Distances**](Notes/Math%20Formulas.md#relationship-of-2-dimensional-distances)
+    <br> Relationship of the Euclidean, Manhattan, Chebyshev, Octile and Sexvigintile distances.
 - [**Kinematics**](Notes/Math%20Formulas.md#kinematics)
     - [**SUVAT Equations**](Notes/Math%20Formulas.md#suvat-equations)
 ## [**How Tos**](Notes/How%20Tos.md)
