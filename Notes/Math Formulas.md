@@ -161,9 +161,19 @@ public float Distance(Vector3 p, Vector3 q)
 ```
 #### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
-### Relationship of 2 Dimensional Distances
+### Relationship of Distances
+#### 2 Dimensions
+<p align="center">Scale</p>
 <p align="center"><img src="/../main/Resources/2DScale.PNG"></p>
+<p align="center">Relationship on a 2 dimensional graph</p>
 <p align="center"><img src="/../main/Resources/RelationshipOf2DDistances.PNG"></p>
+
+#### 3 Dimensions
+<p align="center">Scale</p>
+<p align="center"><img src="/../main/Resources/3DScale.PNG"></p>
+<p align="center">Relationship on a 3 dimensional graph</p>
+<p align="center"><img src="/../main/Resources/RelationshipOf3DDistances.gif"></p>
+<p align="center">Euclidean = 3.00, Manhattan = 5.00, Chebyshev = 2.00, Sexvigintile = 3.15</p>
 
 ## Kinematics
 ### SUVAT Equations
