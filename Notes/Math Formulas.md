@@ -1,7 +1,6 @@
 # Math Formulas
 ## Physical Distances
 Distance is a numerical measurement of how far apart two objects or points are.
-
 ### Euclidean Distance
 The Euclidean distance between two points in euclidean space is the length of a line segment between the two points.
 #### 1 Dimension
@@ -151,6 +150,9 @@ public float Distance(Vector3 p, Vector3 q)
 ```
 #### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
+### Relationship of 2 Dimensional Distances
+![2DScale](/../main/Resources/2DScale.PNG)
+![Relationshipof2DDistances](/../main/Resources/RelationshipOf2DDistances.PNG)
 ## Kinematics
 ### SUVAT Equations
 The SUVAT Equations describe motion in a given direction when acceleration is a constant. The SUVAT equations are:
