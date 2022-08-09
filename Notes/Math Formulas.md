@@ -19,7 +19,7 @@ public float Distance(float p, float q)
 #### 2 Dimension
 In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = \sqrt{(q1 - p1)^2 + (q2 - p2)^2}
+d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
 ```
 ```cs
 //Pseudocode
@@ -30,9 +30,9 @@ public float Distance(Vector2 p, Vector2 q)
 }
 ```
 #### 3 Dimension
-In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1,,q_2, q_3)$. Then the distance between them, $d$, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1, q_2, q_3)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = \sqrt{(q1 - p1)^2 + (q2 - p2)^2 + (q3 - p3)^2}
+d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2 + (q_3 - p_3)^2}
 ```
 ```cs
 //Pseudocode
@@ -48,7 +48,7 @@ Also known as the taxicab geometry is a form of geometry in which the usual dist
 #### 2 Dimension
 In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = |p1 - q1| + |p2 - q2|
+d(p, q) = |p_1 - q_1| + |p_2 - q_2|
 ```
 ```cs
 //Pseudocode
@@ -59,9 +59,9 @@ public float Distance(Vector2 p, Vector2 q)
 }
 ```
 #### 3 Dimension
-In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1,,q_2, q_3)$. Then the distance between them, $d$, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1, q_2, q_3)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = |p1 - q1| + |p2 - q2| + |p3 - q3|
+d(p, q) = |p_1 - q_1| + |p_2 - q_2| + |p_3 - q_3|
 ```
 ```cs
 //Pseudocode
@@ -77,7 +77,7 @@ Chebyshev distance is a distance metric which is the maximum absolute distance i
 #### 2 Dimenstion
 In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = max(|p1 - q1|, |p2 - q2|)
+d(p, q) = max(|p_1 - q_1|, |p_2 - q_2|)
 ```
 ```cs
 //Pseudocode
@@ -88,9 +88,9 @@ public float Distance(Vector2 p, Vector2 q)
 }
 ```
 #### 3 Dimension
-In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1,,q_2, q_3)$. Then the distance between them, $d$, is given by:
+In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2, p_3)$ and let point $q$ have coordinates $(q_1, q_2, q_3)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = max(|p1 - q1|, |p2 - q2|, |p3 - q3|)
+d(p, q) = max(|p_1 - q_1|, |p_2 - q_2|, |p_3 - q_3|)
 ```
 ```cs
 //Pseudocode
@@ -106,7 +106,7 @@ Octile distance is the distance between two points where the respective lengths 
 
 In the Euclidean plane, let point $p$ have Cartesian coordinates $(p_1, p_2)$ and let point $q$ have coordinates $(q_1, q_2)$. Then the distance between them, $d$, is given by:
 ```math
-d(p, q) = max(|p1 - q1|, |p2 - q2|) + (\sqrt{2} - 1) * min(|p1 - q1|, |p2 - q2|)
+d(p, q) = max(|p_1 - q_1|, |p_2 - q_2|) + (\sqrt{2} - 1) * min(|p_1 - q_1|, |p_2 - q_2|)
 ```
 ```cs
 //Pseudocode
