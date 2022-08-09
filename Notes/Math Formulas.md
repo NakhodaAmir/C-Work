@@ -151,4 +151,4 @@ public float Distance(Vector3 p, Vector3 q)
 ```
 #### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
-## Suvat
+## SUVAT
