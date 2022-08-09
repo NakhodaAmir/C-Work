@@ -115,7 +115,7 @@ public float Distance(Vector2 p, Vector2 q)
   return Math.Max(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y)) + (Math.Sqrt(2) - 1) * Math.Min(Math.Abs(p.x - q.x), Math.Abs(p.y - q.y));
 }
 ```
-This formula can further be generalized, as shown below,
+This formula can be generalized, as shown below,
 ```math
 d(p, q) = max(|p_1 - q_1|, |p_2 - q_2|) + (D - 1) * min(|p_1 - q_1|, |p_2 - q_2|)
 ```
