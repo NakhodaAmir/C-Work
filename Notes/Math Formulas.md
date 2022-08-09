@@ -169,8 +169,4 @@ s = {{v + u}\over 2}t
 ```math
 s = vt - {{at^2}\over 2}
 ```
-Where $s$ is displacement.
-<br>$u$ is initial velocity.
-<br>$v$ is final velocity.
-<br>$a$ is acceleration.
-<br>$t$ is total time.
+Where $s$ is displacement, $u$ is initial velocity, $v$ is final velocity, $a$ is acceleration and $t$ is total time.
