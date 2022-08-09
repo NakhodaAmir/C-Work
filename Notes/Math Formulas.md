@@ -159,6 +159,13 @@ public float Distance(Vector3 p, Vector3 q)
     return (Math.Sqrt(3) - Math.Sqrt(2)) * dmin + (Math.Sqrt(2) - 1) * dmid + dmax;
 }
 ```
+This formula can be generalized, as shown below,
+```math
+d(p, q) = (D_2 - D_1) * dmin + (D_1 - 1) * dmid + dmax
+```
+Where when $D_2 = 1$ and $D_1 = 1$, the formula will regress to the Chebyshev distance.
+<br>When $D_2 = 3$ and $D_1 = 2$, the formula will turn into the Manhattan distance.
+<br>Sexvigintile distance is when $D_2 = \sqrt3$ and $D_1 = \sqrt2$
 #### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
 ### Relationship of Distances
