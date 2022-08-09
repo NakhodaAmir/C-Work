@@ -151,8 +151,8 @@ public float Distance(Vector3 p, Vector3 q)
 #### References
 https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
 ### Relationship of 2 Dimensional Distances
-![2DScale](/../main/Resources/2DScale.PNG)
-<br>![Relationshipof2DDistances](/../main/Resources/RelationshipOf2DDistances.PNG)
+<img align="center" src="/../main/Resources/2DScale.PNG">
+<img align="center" src="/../main/Resources/RelationshipOf2DDistances.PNG">
 ## Kinematics
 ### SUVAT Equations
 The SUVAT Equations describe motion in a given direction when acceleration is a constant. The SUVAT equations are:
