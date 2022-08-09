@@ -173,6 +173,7 @@ https://webdocs.cs.ualberta.ca/~nathanst/papers/voxels.pdf
 <p align="center"><img src="/../main/Resources/3DScale.PNG"></p>
 <p align="center">Relationship on a 3 dimensional graph</p>
 <p align="center"><img src="/../main/Resources/RelationshipOf3DDistances.gif"></p>
+
 <p align="center">Start(0, 0, 0), Target (2, 2, 1)
 <p align="center">Euclidean = 3.00, Manhattan = 5.00, Chebyshev = 2.00, Sexvigintile = 3.15</p>
 
