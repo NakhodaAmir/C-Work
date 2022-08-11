@@ -10,6 +10,7 @@ namespace MirJan
                 using UnityEngine;
                 using Utilities;
                 using Helpers;
+                using System;
 
                 public class SquareGridGraph : PathFinderManager<SquareGridGraph, Vector2Int>
                 {
@@ -214,6 +215,31 @@ namespace MirJan
                         int x = Mathf.Clamp(Mathf.FloorToInt(gridSizeX * percentX), 0, gridSizeX - 1);
                         int y = Mathf.Clamp(Mathf.FloorToInt(gridSizeY * percentY), 0, gridSizeY - 1);
                         return grid[x, y];
+                    }
+
+                    public override Vector3[] GetWayPoints(List<PathFinder<SquareGridGraph, Vector2Int>.Node> pathList)
+                    {
+                        List<Vector3> wayPoints = new List<Vector3>(pathList.Count - 1);
+
+                        Vector2 oldDirection = Vector2.zero;
+                        Vector2 newDirection = Vector2.zero;
+
+                        for (int i = 1; i < pathList.Count - 1; i++)
+                        {
+                            newDirection.x = pathList[i + 1].Value.x - pathList[i].Value.x;
+                            newDirection.y = pathList[i + 1].Value.y - pathList[i].Value.y;
+
+                            if (newDirection != oldDirection)
+                            {
+                                wayPoints.Add(pathList[i].WorldPosition);
+                            }
+
+                            oldDirection = newDirection;
+                        }
+
+                        wayPoints.Add(pathList[pathList.Count - 1].WorldPosition);
+
+                        return wayPoints.ToArray();
                     }
                     #endregion
 

@@ -45,6 +45,7 @@ namespace MirJan
                 #region Graph 3D Interface
                 public abstract PathFinder<Graph, Type>.Node NodeFromWorldPoint(Vector3 worldPosition);
                 public abstract void CreateGraph();
+                public abstract Vector3[] GetWayPoints(List<PathFinder<Graph, Type>.Node> pathList);
                 #endregion
 
                 #region Graph Searchable Interface

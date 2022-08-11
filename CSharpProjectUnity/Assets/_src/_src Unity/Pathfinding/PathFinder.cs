@@ -36,7 +36,7 @@ namespace MirJan
 
                     while (graphSearcher.IsRunning) graphSearcher.Step();
 
-                    pathRequest.Callback(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded);
+                    pathRequest.Callback(PathFinderManager<Graph, Type>.Instance.GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded);
                     return;
                 }
                 #endregion
@@ -52,21 +52,6 @@ namespace MirJan
                     }
 
                     return node;
-                }
-
-                Vector3[] GetWayPoints(List<Node> pathList)
-                {
-                    Vector3[] wayPoints = new Vector3[pathList.Count];
-
-                    int i = 0;
-
-                    foreach (Node node in pathList)
-                    {
-                        wayPoints[i] = node.WorldPosition;
-                        i++;
-                    }
-
-                    return wayPoints;
                 }
                 #endregion
 
