@@ -17,9 +17,12 @@ namespace MirJan
 
                     string code = "";
 
-                    for (int i = 0; i < enumValues.Count; i++)
+                    if(enumValues != null)
                     {
-                        code += $"{enumValues[i].ToUpper()}, ";
+                        for (int i = 0; i < enumValues.Count; i++)
+                        {
+                            code += $"{enumValues[i].ToUpper()}, ";
+                        }
                     }
 
                     display = code;

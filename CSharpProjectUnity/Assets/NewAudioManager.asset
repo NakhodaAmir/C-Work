@@ -10,7 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8acabaad471aec40be81539f3505c95, type: 3}
-  m_Name: New Audio Manager
+  m_Name: NewAudioManager
   m_EditorClassIdentifier: 
-  tracks: []
-  audioTypesTextInfo: 
+  tracks:
+  - source: {fileID: 0}
+    audios:
+    - name: TEst1
+      type: 1
+      clip: {fileID: 0}
+  - source: {fileID: 0}
+    audios:
+    - name: TEst13
+      type: 2
+      clip: {fileID: 0}
+  audioTypesTextInfo: 'TEST1, TEST13, '

@@ -6,7 +6,8 @@ namespace MirJan
         {
             public enum AUDIOTYPES
             {
-
+                NONE,
+TEST1, TEST13, 
             }
         }
     }

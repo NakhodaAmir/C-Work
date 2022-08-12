@@ -8,8 +8,11 @@ namespace MirJan
             using UnityEditor;
             using UnityEngine;
             using MirJan.Unity.Managers;
+            using MirJan.Unity.Helpers;
             public class MirjanEditor : Editor
             {
+                static bool isAudioManagerCreated = false;
+
                 [MenuItem("MirJan Assets/Path Finding/Square Grid Graph", false, -1)]
                 public static void CreateGridGraph()
                 {
@@ -23,6 +26,29 @@ namespace MirJan
                     GameObject graph = new GameObject(nameof(SquareGridGraph));
                     graph.AddComponent<SquareGridGraph>();
                 }
+
+                [MenuItem("MirJan Assets/Managers/Audio Manager", false, -1)]
+                public static void CreateAudioManager()
+                {
+                    AudioManager audioManager = CreateInstance<AudioManager>();
+
+                    if(!isAudioManagerCreated)
+                    {
+                        AssetDatabase.CreateAsset(audioManager, "Assets/NewAudioManager.asset");
+
+                        isAudioManagerCreated = true;
+
+                        AssetDatabase.SaveAssets();
+
+                        EditorUtility.FocusProjectWindow();
+
+                        Selection.activeObject = audioManager;
+                    }
+                    else
+                    {
+                        Debug.LogError("Cant create more than 1 audio manager");
+                    } 
+                }
             }
 
             [CustomEditor(typeof(AudioManager))]
@@ -35,7 +61,8 @@ namespace MirJan
                     AudioManager audioManager = (AudioManager)target;
 
                     GUILayout.Label("Enum Generation", EditorStyles.boldLabel);
-                    if(GUILayout.Button("Generate Audio Types"))
+
+                    if (GUILayout.Button("Generate Audio Types"))
                     {
                         audioManager.GenerateAudioTypes();
                     }

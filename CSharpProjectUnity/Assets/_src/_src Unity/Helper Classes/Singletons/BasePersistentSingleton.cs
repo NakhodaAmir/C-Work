@@ -28,22 +28,25 @@ namespace MirJan
                 #endregion
 
                 #region Protected & Private Methods
-                private void OnEnable()
+                protected virtual void OnEnable()
                 {
-                    if (singletons.ContainsKey(GetType()))
-                    {
-                        DestroyImmediate(this);
-                    }
-                    else
+                    if (!singletons.ContainsKey(GetType()))
                     {
                         hideFlags = HideFlags.DontUnloadUnusedAsset;
                         singletons.Add(GetType(), this);
                     }
+                    else
+                    {
+                        //Debug.Log(singletons.Count);
+                    }
                 }
 
-                private void OnDisable()
+                protected virtual void OnDisable()
                 {
-                    
+                    if (singletons.ContainsKey(GetType()))
+                    {
+                        singletons.Remove(GetType());
+                    }
                 }
 
                 protected virtual void Initialize()
@@ -74,6 +77,11 @@ namespace MirJan
                 protected virtual void OnLateUpdate() { }
                 protected virtual void OnApplicationQuit() { }
                 protected virtual void OnDrawGizmos() { }
+
+                public T AddComponent<T>() where T : Component
+                {
+                    return PersistentSingletonBehaviour.Instance.gameObject.AddComponent<T>();
+                }
                 #endregion
 
                 #region Coroutine
