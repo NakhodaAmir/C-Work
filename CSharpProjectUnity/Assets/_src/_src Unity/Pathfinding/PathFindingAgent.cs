@@ -7,6 +7,7 @@ namespace MirJan
             using System;
             using System.Collections;
             using UnityEngine;
+            using MirJan.Unity.Helpers;
 
             public class PathFindingAgent : MonoBehaviour
             {
@@ -18,16 +19,13 @@ namespace MirJan
                 #region Variables
                 public Transform target;
 
+                Vector3 targetPosOld;
+
                 Vector3[] wayPoints;
 
-                PathRequest? currentPathRequest;
+                PathRequest currentPathRequest;
 
-                bool isFindingPath;
-                #endregion
-
-                #region Properties
-                public Vector3[] WayPoints { get { return wayPoints; } }
-                public bool IsPathSuccess { get; private set; }
+                float sqrUpdateThreshold;
                 #endregion
 
                 #region Debug
@@ -35,58 +33,33 @@ namespace MirJan
                 public bool displayPathGizmos;
                 #endregion
 
-                #region Public Methods
-                public void FindPath()
-                {
-                    if (isFindingPath) return;
-
-                    isFindingPath = true;
-                    StartCoroutine("UpdatePath");
-                }
-
-                public void StopFindingPath()
-                {
-                    if (!isFindingPath) return;
-
-                    isFindingPath = false;
-                    StopCoroutine("UpdatePath");
-                }
-                #endregion
-
                 #region Protected and Private Methods
-                protected virtual void OnPathFound() { }
-                protected virtual void OnPathFailed() { }
-
-                void OnPathFound(Vector3[] wayPoints, bool IsSuccess)
+                protected virtual void Awake()
                 {
-                    currentPathRequest?.Dispose();
-                    currentPathRequest = null;
+                    sqrUpdateThreshold = PATH_UPDATE_THRESHOLD * PATH_UPDATE_THRESHOLD;
+                }
 
-                    IsPathSuccess = IsSuccess;
+                protected virtual void Start()
+                {
+                    StartCoroutine(UpdatePath());
+                }
 
-                    if (!IsSuccess)
-                    {
-                        OnPathFailed();
-                        return;
-                    }
+                protected virtual void Update()
+                {
 
-                    this.wayPoints = wayPoints;
-                    OnPathFound();
                 }
 
                 IEnumerator UpdatePath()
                 {
-                    if (Time.timeSinceLevelLoad < 0.3f) yield return new WaitForSeconds(0.3f);
+                    if (Time.timeSinceLevelLoad < 0.3f) yield return CoroutineHelper.WaitForSeconds(0.3f);
 
                     currentPathRequest = PathRequest.Create(transform.position, target.position, OnPathFound);
 
-                    float sqrUpdateThreshold = PATH_UPDATE_THRESHOLD * PATH_UPDATE_THRESHOLD;
-
-                    Vector3 targetPosOld = target.position;
+                    targetPosOld = target.position;
 
                     while (true)
                     {
-                        yield return new WaitForSeconds(MINIMUM_PATH_UPDATE_TIME);
+                        yield return CoroutineHelper.WaitForSeconds(MINIMUM_PATH_UPDATE_TIME);
 
                         if (currentPathRequest == null)
                         {
@@ -98,6 +71,16 @@ namespace MirJan
                             }
                         }
                     }
+                }
+
+                void OnPathFound(Vector3[] wayPoints, bool IsSuccess)
+                {
+                    currentPathRequest.Dispose();
+                    currentPathRequest = null;
+
+                    if (!IsSuccess) return;
+
+                    this.wayPoints = wayPoints;
                 }
                 #endregion
 

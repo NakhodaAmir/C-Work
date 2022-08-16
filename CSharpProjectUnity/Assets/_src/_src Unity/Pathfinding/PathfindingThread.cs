@@ -7,6 +7,8 @@ namespace MirJan
             using System.Collections.Concurrent;
             using System.Collections.Generic;
             using System.Threading;
+            using UnityEngine;
+
             public class PathfindingThread<Graph, Type> where Graph : PathFinderManager<Graph, Type>
             {
                 #region Constant Variable
@@ -18,15 +20,19 @@ namespace MirJan
                 public int ThreadNumber;
                 public bool Run { get; private set; }
 
-                public Queue<PathRequest?> PathRequestQueue = new Queue<PathRequest?>();
+                public Queue<PathRequest> PathRequestQueue = new Queue<PathRequest>();
                 public PathFinder<Graph, Type> PathFinder;
+
+                PathRequestManager<Graph, Type> pathRequestManager;
                 #endregion
 
                 #region Constructor
-                public PathfindingThread(int number)
+                public PathfindingThread(PathRequestManager<Graph, Type> pathRequestManager, int number)
                 {
                     ThreadNumber = number;
                     PathFinder = new PathFinder<Graph, Type>();
+
+                    this.pathRequestManager = pathRequestManager;
                 }
                 #endregion
 
@@ -44,6 +50,7 @@ namespace MirJan
                 {
                     Run = false;
                 }
+
                 public void RunThread(object n)
                 {
                     while (Run)
@@ -56,17 +63,23 @@ namespace MirJan
                         }
                         else
                         {
-                            lock (PathRequestManager<Graph, Type>.Instance.QueueLock)
+                            PathRequest pathRequest;
+
+                            lock (pathRequestManager.QueueLock)
                             {
-                                PathRequest? pathRequest = PathRequestQueue.Dequeue();
-
-                                if (pathRequest == null) continue;
-
-                                PathFinder.FindPath((PathRequest)pathRequest);
+                                pathRequest = PathRequestQueue.Dequeue(); 
                             }
+
+                            if (pathRequest == null) continue;
+
+                            if (pathRequest.Callback == null) continue;
+
+                            PathResult pathResult = PathFinder.FindPath(pathRequest);
+
+                            pathRequestManager.EnqueuePathResult(pathResult);
                         }
                     }
-                }
+                }  
                 #endregion
             }
         }

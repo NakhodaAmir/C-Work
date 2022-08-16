@@ -10,19 +10,16 @@ namespace MirJan
             public abstract class PersistentSingleton<T> : BasePersistentSingleton where T : PersistentSingleton<T>
             {
                 #region Singleton
-                public static T Instance => Lazy.instance;
+                public static T Instance { get; private set; }
 
-                private class Lazy
+                protected override void CreateInstance()
                 {
-                    static Lazy() { }
-
-                    internal static readonly T instance = GetSingleton();
-
-                    private static T GetSingleton()
+                    if (Instance != null)
                     {
-                        BasePersistentSingleton instance = singletons[typeof(T)];
-                        return (T)instance;
+                        return;
                     }
+
+                    Instance = GetAndInitialize<T>();
                 }
                 #endregion
             }

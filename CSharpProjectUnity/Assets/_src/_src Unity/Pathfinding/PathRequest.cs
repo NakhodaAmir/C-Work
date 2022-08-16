@@ -7,7 +7,7 @@ namespace MirJan
             using System;
             using System.Collections.Generic;
             using UnityEngine;
-            public struct PathRequest
+            public class PathRequest
             {
                 #region Static Variables & Methods
                 private static readonly Queue<PathRequest> Pooled = new Queue<PathRequest>();
@@ -56,6 +56,8 @@ namespace MirJan
                 #region Public Method
                 public void Dispose()
                 {
+                    Callback = null;
+
                     if (!Pooled.Contains(this))
                     {
                         Pooled.Enqueue(this);

@@ -5,9 +5,17 @@ using MirJan.Unity.PathFinding;
 using MirJan.Helpers;
 public class PathFindingAgentExample : PathFindingAgent
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Awake()
     {
-        FindPath();
+        base.Awake();
+    }
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 }

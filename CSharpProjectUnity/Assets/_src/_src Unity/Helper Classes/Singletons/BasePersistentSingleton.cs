@@ -13,36 +13,66 @@ namespace MirJan
             public abstract class BasePersistentSingleton : ScriptableObject
             {
                 #region Singleton Container
-                protected static readonly Dictionary<Type, BasePersistentSingleton> singletons = new Dictionary<Type, BasePersistentSingleton>();
+                public static readonly Dictionary<Type, BasePersistentSingleton> singletons = new Dictionary<Type, BasePersistentSingleton>();
+
+                protected static T GetAndInitialize<T>() where T : BasePersistentSingleton
+                {
+                    var instance = (T)singletons[typeof(T)];
+
+                    instance.Initialize();
+
+                    return instance;
+                }
                 #endregion
 
-                #region Before Scene Initialization
+                    #region Before Scene Initialization
+#if UNITY_EDITOR
+                [UnityEditor.InitializeOnLoadMethod]
+                private static void LoadPreloadedAssetsInEditor()
+                {
+                    UnityEditor.PlayerSettings.GetPreloadedAssets();
+                }
+#endif
+
                 [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
                 private static void InitializeSingletons()
                 {
                     foreach (KeyValuePair<Type, BasePersistentSingleton> singleton in singletons)
                     {
-                        singleton.Value.Initialize();
+                        singleton.Value.CreateInstance();
                     }
                 }
                 #endregion
 
                 #region Protected & Private Methods
+
+                protected abstract void CreateInstance();
                 protected virtual void OnEnable()
                 {
+#if UNITY_EDITOR
+                    if (UnityEditor.EditorApplication.isPlaying)
+                    {
+                        return;
+                    }
+#endif
+                    this.AddToPreloadedAssets();
+
                     if (!singletons.ContainsKey(GetType()))
                     {
-                        hideFlags = HideFlags.DontUnloadUnusedAsset;
                         singletons.Add(GetType(), this);
-                    }
-                    else
-                    {
-                        //Debug.Log(singletons.Count);
-                    }
+                    }         
                 }
 
                 protected virtual void OnDisable()
                 {
+#if UNITY_EDITOR
+                    if (UnityEditor.EditorApplication.isPlaying)
+                    {
+                        return;
+                    }
+#endif
+                    PersistentSingletonHelper.RemoveEmptyPreloadedAssets();
+
                     if (singletons.ContainsKey(GetType()))
                     {
                         singletons.Remove(GetType());

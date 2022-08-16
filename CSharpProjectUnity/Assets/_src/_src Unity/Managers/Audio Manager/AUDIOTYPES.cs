@@ -4,10 +4,10 @@ namespace MirJan
     {
         namespace Managers
         {
-            public enum AUDIOTYPES
+            public enum AudioTypes
             {
                 NONE,
-TEST1, TEST13, 
+SFX1, SFX2, INVESTIGATIONMUSIC, ENCHANTINGMUSIC, TRUMPET, 
             }
         }
     }

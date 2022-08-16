@@ -23,35 +23,32 @@ namespace MirJan
                 #endregion
 
                 #region Public Methods
-                public void FindPath(PathRequest pathRequest)
+                public PathResult FindPath(PathRequest pathRequest)
                 {
                     graphSearcher.Initialize(NodeFromWorldPoint(pathRequest.StartPosition), NodeFromWorldPoint(pathRequest.TargetPosition));
 
                     if (!graphSearcher.TargetNode.IsWalkable || !graphSearcher.SourceNode.IsWalkable)
                     {
                         graphSearcher.ForceReset();
-                        pathRequest.Callback(null, false);
-                        return;
+
+                        return new PathResult(null, false, pathRequest.Callback);
                     }
 
                     while (graphSearcher.IsRunning) graphSearcher.Step();
 
-                    pathRequest.Callback(PathFinderManager<Graph, Type>.Instance.GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded);
-                    return;
+                    return new PathResult(GetWayPoints(graphSearcher.PathList), graphSearcher.IsSucceeded, pathRequest.Callback);
                 }
                 #endregion
 
                 #region Private Methods
                 Node NodeFromWorldPoint(Vector3 position)
                 {
-                    Node node;
+                    return PathFinderManager<Graph, Type>.Instance.NodeFromWorldPoint(position);
+                }
 
-                    lock (PathFinderManager<Graph, Type>.Instance)
-                    {
-                        node = PathFinderManager<Graph, Type>.Instance.NodeFromWorldPoint(position);
-                    }
-
-                    return node;
+                Vector3[] GetWayPoints(List<Node> pathList)
+                {
+                    return PathFinderManager<Graph, Type>.Instance.GetWayPoints(pathList);
                 }
                 #endregion
 

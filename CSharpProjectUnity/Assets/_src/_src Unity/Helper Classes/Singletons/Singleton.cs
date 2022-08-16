@@ -21,7 +21,7 @@ namespace MirJan
                     }
                 }
 
-                protected void OnApplicationQuit()
+                protected virtual void OnApplicationQuit()
                 {
                     Instance = null;
                     Destroy(gameObject);

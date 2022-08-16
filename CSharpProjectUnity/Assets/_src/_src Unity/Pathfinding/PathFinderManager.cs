@@ -19,6 +19,10 @@ namespace MirJan
                 [Header("MultiThreading")]
                 [Range(1f, 16f)]
                 public int ThreadCount = 3;
+
+                [Header("Debug")]
+                [TextArea(20, 20)]
+                public string info;
                 #endregion
 
                 #region Unity Methods
@@ -28,17 +32,27 @@ namespace MirJan
 
                     PathRequestManager<Graph, Type>.Instance.Awake();
 
-                    PathRequest.RequestPath = PathRequestManager<Graph, Type>.Instance.EnqueuePathRequest;
-
                     PathFindingAgent.MINIMUM_PATH_UPDATE_TIME = minimumPathUpdateTime;
                     PathFindingAgent.PATH_UPDATE_THRESHOLD = pathUpdateThreshold;
 
                     CreateGraph();
                 }
 
+                private void Update()
+                {
+                    PathRequestManager<Graph, Type>.Instance.Update();
+                }
+
                 private void LateUpdate()
                 {
                     PathRequestManager<Graph, Type>.Instance.LateUpdate();
+                }
+
+                protected override void OnApplicationQuit()
+                {
+                    base.OnApplicationQuit();
+
+                    PathRequestManager<Graph, Type>.Instance.OnApplicationQuit();
                 }
                 #endregion
 

@@ -4,9 +4,12 @@ namespace MirJan
     {
         namespace PathFinding
         {
+            using System;
             using System.Collections.Concurrent;
             using System.Collections.Generic;
+            using System.Text;
             using System.Threading;
+            using UnityEngine;
 
             public class PathRequestManager<Graph, Type> where Graph : PathFinderManager<Graph, Type>
             {
@@ -27,28 +30,70 @@ namespace MirJan
                 PathfindingThread<Graph, Type>[] threads;
 
                 public object QueueLock = new object();
-                readonly Queue<PathRequest> pendingPathRequests = new Queue<PathRequest>();
+                public object CallBackLock = new object();
+                readonly List<PathRequest> pendingPathRequests = new List<PathRequest>();
+                readonly List<PathResult> pendingPathResults = new List<PathResult>();
+
+                private StringBuilder str = new StringBuilder();
                 #endregion
 
                 #region Public Methods
                 public void Awake()
                 {
+                    PathRequest.RequestPath = EnqueuePathRequest;
+
                     CreateThreads(PathFinderManager<Graph, Type>.Instance.ThreadCount);
                     StartThreads();
                 }
 
+                public void Update()
+                {
+                    lock (CallBackLock)
+                    {
+                        foreach (PathResult pathResult in pendingPathResults)
+                        {
+                            if (pathResult.CallBack != null)
+                            {
+                                pathResult.CallBack(pathResult.Path, pathResult.IsSuccess);
+                            }
+                        }
+
+                        pendingPathResults.Clear();
+                    }
+                }
 
                 public void LateUpdate()
                 {
                     if (threads == null || threads.Length == 0) return;
+#if UNITY_EDITOR
+                    str.Append("Requests this frame: ");
+                    str.Append(pendingPathRequests.Count);
+                    str.AppendLine();
+                    str.Append("Pending returns: ");
+                    str.Append(pendingPathResults.Count);
+                    str.AppendLine();
+                    for (int i = 0; i < threads.Length; i++)
+                    {
+                        var t = threads[i];
+                        int count = t.PathRequestQueue.Count;
 
+                        str.Append("Thread #");
+                        str.Append(i);
+                        str.Append(": ");
+                        str.AppendLine();
+                        str.Append("  -");
+                        str.Append(count);
+                        str.Append(" pending requests.");
+                        str.AppendLine();
+                    }
+
+                    PathFinderManager<Graph, Type>.Instance.info = str.ToString();
+                    str.Length = 0;
+#endif
                     lock (QueueLock)
                     {
-
-                        while (pendingPathRequests.Count > 0)
+                        foreach (PathRequest pathRequest in pendingPathRequests)
                         {
-                            PathRequest pathRequest = pendingPathRequests.Dequeue();
-
                             int lowest = int.MaxValue;
                             PathfindingThread<Graph, Type> t = null;
 
@@ -63,14 +108,30 @@ namespace MirJan
 
                             t.PathRequestQueue.Enqueue(pathRequest);
                         }
+
+                        pendingPathRequests.Clear();
                     }
                 }
 
                 public void EnqueuePathRequest(PathRequest pathRequest)
                 {
+                    if (Instance == null) return;
+
+                    if (pathRequest == null) return;
+
+                    if (pendingPathRequests.Contains(pathRequest)) return;
+
                     lock (QueueLock)
                     {
-                        pendingPathRequests.Enqueue(pathRequest);
+                        pendingPathRequests.Add(pathRequest);
+                    }
+                }
+
+                public void EnqueuePathResult(PathResult pathResult)
+                {
+                    lock (CallBackLock)
+                    {
+                        pendingPathResults.Add(pathResult);
                     }
                 }
 
@@ -82,7 +143,7 @@ namespace MirJan
 
                     for (int i = 0; i < number; i++)
                     {
-                        threads[i] = new PathfindingThread<Graph, Type>(i);
+                        threads[i] = new PathfindingThread<Graph, Type>(this, i);
                     }
                 }
 
@@ -113,7 +174,7 @@ namespace MirJan
                     if (threads != null) StopThreads();
                 }
                 #endregion
-            }
+            }       
         }
     }
 }
